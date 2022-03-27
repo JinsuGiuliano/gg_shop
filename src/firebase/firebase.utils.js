@@ -1,23 +1,22 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDoc, doc, setDoc, writeBatch, collection } from "firebase/firestore";
+import { getFirestore, getDoc, doc, setDoc} from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import { getDatabase } from "firebase/database";
 const config = {
-    apiKey: "AIzaSyDzLodTUhMfAdq8m6MhgJocUJHXqbi7psE",
-    authDomain: "gg-shop-37f61.firebaseapp.com",
-    projectId: "gg-shop-37f61",
-    storageBucket: "gg-shop-37f61.appspot.com",
-    messagingSenderId: "947706689254",
-    appId: "1:947706689254:web:7fba6ee4e30a2c86cfed27",
-    measurementId: "G-2R6M8S8H3M"
+      apiKey: "AIzaSyDzLodTUhMfAdq8m6MhgJocUJHXqbi7psE",
+      authDomain: "gg-shop-37f61.firebaseapp.com",
+      projectId: "gg-shop-37f61",
+      storageBucket: "gg-shop-37f61.appspot.com",
+      messagingSenderId: "947706689254",
+      appId: "1:947706689254:web:7fba6ee4e30a2c86cfed27",
+      measurementId: "G-2R6M8S8H3M"
   };
 
 const app = initializeApp(config);
 
 export const auth = getAuth(app);
 export const firestore = getFirestore();
-//export const fsFunc = require('firebase-functions');
-
+export const realTimeDb = getDatabase(app);
 
 export const provider = new GoogleAuthProvider();
 provider.setCustomParameters({promt: 'select_account'});
@@ -33,7 +32,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
      const { displayName, email } = userAuth;
      const createdAt = new Date();
      try{
-       const r =  await setDoc(userRef,{
+        await setDoc(userRef,{
             displayName, 
             email, 
             createdAt, 
