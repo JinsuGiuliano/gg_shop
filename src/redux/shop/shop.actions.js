@@ -9,9 +9,9 @@ export const fetchCollectionsStart = () => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_START
 });
 
-export const fetchCollectionsSuccess = collectionsMap => ({
+export const fetchCollectionsSuccess = collections => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_SUCCESS,
-  payload: collectionsMap
+  payload: collections
 });
 
 export const fetchCollectionsFailure = errorMessage => ({

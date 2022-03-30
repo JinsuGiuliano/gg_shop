@@ -1,6 +1,7 @@
 const SHOP_DATA = [
   {
     title: 'Hats',
+    indexs:{1:0,2:1,3:2,4:3,5:4,6:5,7:6,8:7,9:8},
     items: [
       {
         id: 1,
@@ -60,6 +61,7 @@ const SHOP_DATA = [
   },
   {
     title: 'Sneakers',
+    indexs:{10:0,11:1,12:2,13:3,14:4,15:5,16:6,17:7},
     items: [
       {
         id: 10,
@@ -114,6 +116,7 @@ const SHOP_DATA = [
   {
     id: 3,
     title: 'Jackets',
+    indexs:{18:0,19:1,20:2,21:3,22:4},
     items: [
       {
         id: 18,
@@ -149,7 +152,8 @@ const SHOP_DATA = [
   },
   {
     id: 4,
-    title: 'Womens',
+    title: 'Womens',    
+    indexs:{23:0,24:1,25:2,26:3,27:4,28:5,29:6},
     items: [
       {
         id: 23,
@@ -198,6 +202,7 @@ const SHOP_DATA = [
   {
     id: 5,
     title: 'Mens',
+    indexs:{30:0,31:1,32:2,33:3,34:4,35:5},
     items: [
       {
         id: 30,

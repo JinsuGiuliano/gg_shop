@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
+
 import { selectIsCollectionsLoaded } from '../../redux/shop/shop.selectors';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
-import CollectionPage from './collection.component';
+import CollectionPage from './admin.component';
 
 const mapStateToProps = createStructuredSelector({
-  isLoading: state => !selectIsCollectionsLoaded(state),
-  currentUser: selectCurrentUser
+  isLoading: state => !selectIsCollectionsLoaded(state)
 });
 
 const CollectionPageContainer = compose(

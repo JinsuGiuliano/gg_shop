@@ -15,19 +15,20 @@ import Header from './components/header/header.component';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
+// import { addCollectionAndDocuments } from './firebase/firebase.utils';
+// import SHOP_DATA from './redux/shop/shop.data';
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
     const { checkUserSession } = this.props;
-    checkUserSession();
+    checkUserSession();      
+    // addCollectionAndDocuments('categories', SHOP_DATA);
   }
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
-  
-  
 
   render() {
     const {currentUser} = this.props;

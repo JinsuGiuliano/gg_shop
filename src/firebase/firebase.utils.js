@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDoc, doc, setDoc} from "firebase/firestore";
+import { getFirestore, getDoc, doc, setDoc, collection, addDoc} from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 const config = {
@@ -46,21 +46,55 @@ return userRef;
 }
 
 export const convertCollectionsSnapshotToMap = collections => {
+  try{
     const transformedCollection = collections.docs.map(doc => {
-      const { title, items } = doc.data();
+      const { category, id, name, price } = doc.data();
   
       return {
-        routeName: encodeURI(title.toLowerCase()),
-        id: doc.id,
-        title,
-        items
+        routeName: encodeURI(category.toLowerCase()),
+        id,
+        name,
+        price
       };
     });
-  
+    
     return transformedCollection.reduce((accumulator, collection) => {
-      accumulator[collection.title.toLowerCase()] = collection;
-      return accumulator;
+      accumulator[collection.category.toLowerCase()] = collection;
+      console.log(accumulator)
+     return accumulator;
     }, {});
+  }catch(err){
+      console.log("error converting Snapshot: ", err )
+  }
+    
+  };
+
+  export const addCollectionAndDocuments = async (
+    collectionKey,
+    objectsToAdd
+  ) => {
+    //const batch = writeBatch(firestore);
+    const collectionRef = collection(firestore, collectionKey);
+    
+    objectsToAdd.forEach((object) => {
+       const docRef = doc(collectionRef, object.title.toLowerCase());
+                      setDoc(docRef, {title: object.title.toLowerCase()})
+       object.items.forEach(item => {
+            const prod = {
+              id: item.id,
+              name: item.name,
+              price: item.price,
+              imageUrl: item.imageUrl,
+              category: object.title.toLowerCase()
+            }
+            const itemsRef = collection(docRef,'items');
+                             addDoc(itemsRef,prod )
+            //setDoc(iRef, item)
+       })
+    });
+  
+   // await batch.commit();
+    console.log('done');
   };
 
   // export const addCollectionAndDocuments = async (
@@ -68,11 +102,15 @@ export const convertCollectionsSnapshotToMap = collections => {
   //   objectsToAdd
   // ) => {
   //   const batch = writeBatch(firestore);
-  //   const collectionRef = collection(firestore, collectionKey);
+  //   const categoriesRef = collection(firestore, collectionKey);
     
   //   objectsToAdd.forEach((object) => {
-  //      const docRef = doc(collectionRef, object.title.toLowerCase());
-  //      batch.set(docRef, object);
+  //         const categoryRef = doc(categoriesRef, object.title.toLowerCase());
+  //         const itemsRef = collection(categoryRef, 'items' );
+  //         object.items.forEach( (item) => {
+  //           //var docRef = doc(itemsRef, item); //automatically generate unique id
+  //           batch.set(itemsRef, item);
+  //         })
   //   });
   
   //   await batch.commit();

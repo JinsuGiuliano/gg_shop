@@ -4,7 +4,7 @@ const selectShop = state => state.shop;
 
 export const selectCollections = createSelector(
   [selectShop],
-  shop => shop.collections
+  shop =>  shop.collections
 );
 
 export const selectCollectionsForPreview = createSelector(
@@ -16,7 +16,10 @@ export const selectCollectionsForPreview = createSelector(
 export const selectCollection = collectionUrlParam =>
   createSelector(
     [selectCollections],
-    collections => (collections ? collections[collectionUrlParam] : null)
+    collections => {
+      console.log(collections[1][collectionUrlParam] )
+      return (collections ? collections[1][collectionUrlParam] : null)
+    }
   );
 
 export const selectIsCollectionFetching = createSelector(

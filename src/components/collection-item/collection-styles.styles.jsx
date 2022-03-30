@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
+import { ReactComponent as EditIconSVG } from '../../assets/edit.svg';
 
 export const CollectionItemContainer = styled.div`
   width: 22vw;
@@ -54,4 +55,24 @@ export const NameContainer = styled.span`
 export const PriceContainer = styled.span`
   width: 10%;
   text-align: right;
+`;
+
+export const NameInputContainer = styled.input`
+  width: 90%;
+  margin-bottom: 15px;
+`;
+
+export const PriceInputContainer = styled.input`
+  width: 10%;
+  text-align: right;
+`;
+
+export const EditIcon = styled(EditIconSVG)`
+  width: 24px;
+  height: 24px;
+
+  &:hover {
+      opacity: 0.8;
+    }
+
 `;
