@@ -1,12 +1,12 @@
 import ShopActionTypes from './shop.types';
-
+import SHOP_DATA from './shop.data'
 const INITIAL_STATE = {
   collections: null,
   isFetching: false,
   errorMessage: undefined
 };
 
-const shopReducer = (state = INITIAL_STATE, action) => {
+export const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ShopActionTypes.FETCH_COLLECTIONS_START:
       return {
@@ -29,5 +29,3 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-
-export default shopReducer;
