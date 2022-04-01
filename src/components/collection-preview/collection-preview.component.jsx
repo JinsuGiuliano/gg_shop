@@ -10,21 +10,22 @@ import {
   PreviewContainer
 } from './collection-preview.styles';
 
-const CollectionPreview = ({ title, items, history, match, routeName, currentUser }) => {
-
-  console.log(title, items)
-
+const CollectionPreview = ({ title, items, history, match, currentUser }) => {
+//   items.forEach(el=>(
+//     el.map(e=>console.log(e))
+//   ))
     return(
       <CollectionPreviewContainer>
-        <TitleContainer onClick={() => history.push(`${match.path}/${routeName}`)}>
+        <TitleContainer onClick={() => history.push(`${match.path}/${title}`)}>
           {title && title.toUpperCase()}
         </TitleContainer>
         <PreviewContainer>
           {items && 
+           
             items
-            .filter((item, idx) => idx < 4)
-            .map(item => (
-              <CollectionItemCompenent key={item.id} item={item} currentUser={currentUser} routeName={routeName}/>
+            .filter((_, idx) => idx < 4)
+            .map((i, idx) => (
+              <CollectionItemCompenent key={idx} item={i} currentUser={currentUser} routeName={title}/>
             ))
           }
         </PreviewContainer>

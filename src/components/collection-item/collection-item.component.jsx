@@ -16,9 +16,10 @@ import {
   EditIcon
 } from './collection-styles.styles';
 
-const CollectionItem = ({ item, addItem, currentUser, routeName}) => {
+const CollectionItem = ({ item, addItem, currentUser}) => {
   
-  const { name, price, imageUrl } = item;
+
+  const { name, price, imageUrl, category } = item;
   const [prodName, setProdName] = useState(name);
   const [prodPrice, setProdPrice] = useState(price);
   const [prodImageUrl, setprodImageUrl] = useState(imageUrl);
@@ -26,7 +27,7 @@ const CollectionItem = ({ item, addItem, currentUser, routeName}) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    updateItem(item,{prodName,prodPrice,prodImageUrl}, routeName)
+    updateItem(item,{prodName,prodPrice,prodImageUrl}, category)
   };
 
   const handleChange = event => {
@@ -46,7 +47,6 @@ const CollectionItem = ({ item, addItem, currentUser, routeName}) => {
     }
      
   };
-
   return (
     <div>
     {
@@ -66,6 +66,7 @@ const CollectionItem = ({ item, addItem, currentUser, routeName}) => {
         </CollectionFooterContainer>
         <AddButton onClick={() => addItem(item)} inverted>
           Add to cart
+          
         </AddButton>
       </CollectionItemContainer>
       ):(

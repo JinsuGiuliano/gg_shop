@@ -5,16 +5,17 @@ import { CollectionsOverviewContainer } from './collections-overview.styles';
 // import { selectCollections } from '../../redux/shop/shop.selectors';
 // import { createStructuredSelector } from 'reselect';
 
-const CollectionsOverview = ({ collections, currentUser }) => 
-
-        (
+const CollectionsOverview = ({ collections, currentUser }) => {
+  
+  return(
           <CollectionsOverviewContainer>
-            {collections &&
-              collections.map((category, idx) => (
-                <CollectionPreview key={idx} title={category.title} items={category.items}/>
+            {
+              collections &&
+              collections.map((category) => (
+                <CollectionPreview key={category.title} title={category.title} items={category.items}/>
               ))
             }
-          </CollectionsOverviewContainer>     
-        )
-
+          </CollectionsOverviewContainer>
+        )     
+          }
 export default CollectionsOverview;

@@ -1,4 +1,4 @@
-import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection, query } from "firebase/firestore";
 import { firestore } from "../firebase.utils";
 
 export const updateItem = async (item, {prodName,prodPrice,prodImageUrl},routeName) => {
@@ -23,28 +23,20 @@ export const updateItem = async (item, {prodName,prodPrice,prodImageUrl},routeNa
     }
 }
 
+export const getCategoriesAndDocuments =  (sections) => {
 
-export const getCategories =  (categoryListNames)=>{
-  try{
-
-    let CategoriesList = [];
-
-    categoryListNames.forEach( async(name) => {
-
-        let category = {
-          title: name,
-          items: []
-        };
-
-        const categoryItemsSnapshot = await getDocs(collection(firestore, 'categories', `${name}`, 'items'))
-       
-        categoryItemsSnapshot.forEach( ( item ) => {
-            category.items.push(item.data())
-        })
-        CategoriesList.push(category)
+  let categoryList = [];
+    sections.forEach(async(section)=>{
+      let category = {
+        title: section.title,
+        items: []
+      };
+      const collectionRef = collection(firestore, 'categories', `${section.title}`, 'items')
+      const q = query(collectionRef);
+      const querySnapshot = await getDocs(q);
+      querySnapshot.docs.map(item => category.items.push(item.data()))
+      categoryList.push(category)
     })
-    return CategoriesList;
-  }catch(err){
-    console.log(err)
-  }
-}
+    return categoryList;
+
+};

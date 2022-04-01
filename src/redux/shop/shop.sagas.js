@@ -1,36 +1,19 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 
-import { firestore } from '../../firebase/firebase.utils';
+import { getCategoriesAndDocuments } from '../../firebase/shop/updateItem';
 
-import { getCategories } from '../../firebase/shop/updateItem';
-
-import { collection, getDocs } from "firebase/firestore";
 import {
   fetchCollectionsSuccess,
   fetchCollectionsFailure
 } from './shop.actions';
-
+import sections from '../directory/SECTIONS_DATA';
 import ShopActionTypes from './shop.types';
 
-const trasnformCollection = (categoriesSnap) => {
-  try{
-    let categoriesList=[];
-    categoriesSnap.forEach( (doc)=> {
-      categoriesList.push(doc.data().title);
-    })
-    return getCategories(categoriesList);
-  }catch(err){
-       console.log("error at Shop.Saga transformCollections: ",err)
-  }
-}
 
 export function* fetchCollectionsAsync() {
   try {
-    
-      const categoriesSnap = yield getDocs(collection(firestore, 'categories'))
-
-      const collectionsSnap = yield trasnformCollection(categoriesSnap)
-      
+      const collectionsSnap = yield call(getCategoriesAndDocuments,sections)
+      yield console.log("collectionsSnap in shop saga: ",collectionsSnap)
       yield put(fetchCollectionsSuccess(collectionsSnap))
   } catch (error) {
       yield put(fetchCollectionsFailure(error.message));
