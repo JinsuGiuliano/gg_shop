@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 import {
   MenuItemContainer,
@@ -12,7 +11,7 @@ import {
 const MenuItem = ({ title, imageUrl, size,  linkUrl, history, match }) => (
   <MenuItemContainer
     size={size}
-    onClick={() => history.push(`${match.url}${linkUrl}`)}
+    onClick={linkUrl}
   >
     <BackgroundImageContainer
       className='background-image'
@@ -25,4 +24,4 @@ const MenuItem = ({ title, imageUrl, size,  linkUrl, history, match }) => (
   </MenuItemContainer>
 );
 
-export default withRouter(MenuItem);
+export default MenuItem;

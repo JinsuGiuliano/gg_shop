@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import CollectionItemCompenent from '../collection-item/collection-item.component';
@@ -10,15 +9,13 @@ import {
   PreviewContainer
 } from './collection-preview.styles';
 
-const CollectionPreview = ({ title, items, history, match, currentUser }) => {
+const CollectionPreview = ({ title, items, currentUser }) => {
 //   items.forEach(el=>(
 //     el.map(e=>console.log(e))
 //   ))
     return(
       <CollectionPreviewContainer>
-        <TitleContainer onClick={() => history.push(`${match.path}/${title}`)}>
-          {title && title.toUpperCase()}
-        </TitleContainer>
+        <TitleContainer to={`shop/${title}`}>{title.toUpperCase()}</TitleContainer>
         <PreviewContainer>
           {items && 
            
@@ -36,4 +33,4 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 })
 
-export default withRouter(connect(mapStateToProps)(CollectionPreview));
+export default connect(mapStateToProps)(CollectionPreview);

@@ -1,13 +1,16 @@
 import React from 'react';
-
+import { Outlet } from 'react-router-dom';
 import Directory from '../../components/directory/directory.component';
 
 import { HomePageContainer } from './homepage.styles';
 
-const HomePage = () => (
+const HomePage = () => {
+  console.log('HomePage Loaded...')
+  return(
   <HomePageContainer>
     <Directory />
+    <Outlet/>
   </HomePageContainer>
-);
+)}
 
 export default HomePage;

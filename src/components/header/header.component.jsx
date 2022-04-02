@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-
+import Chat from '../chat/chat.component';
+import { Fragment } from 'react';
+import { Outlet } from 'react-router-dom';
 //import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
@@ -19,6 +21,10 @@ import {
 } from './header.styles';
 
 const Header = ({ currentUser, hidden, signOutStart }) => (
+  <Fragment>
+  <Chat
+    username={currentUser}
+  />
   <HeaderContainer>
     <LogoContainer to='/'>
       <Logo className='logo' />
@@ -37,6 +43,8 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
     </OptionsContainer>
     {hidden ? null : <CartDropdown />}
   </HeaderContainer>
+  <Outlet/>
+  </Fragment>
 );
 
 const mapStateToProps = createStructuredSelector({

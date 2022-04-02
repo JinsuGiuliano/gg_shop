@@ -5,7 +5,6 @@ import FormInput from '../form-input/form-input.component';
 import { ButtonsBarContainer } from '../sign-in/sign-in.styles';
 import CustomButton from '../custom-button/custom-button.component';
 import { updateItem } from '../../firebase/shop/updateItem';
-import { withRouter } from 'react-router-dom';
 import {
   CollectionItemContainer,
   CollectionFooterContainer,
@@ -103,7 +102,7 @@ const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))
 });
 
-export default withRouter(connect(
+export default connect(
   null,
   mapDispatchToProps
-  )(CollectionItem));
+  )(CollectionItem);

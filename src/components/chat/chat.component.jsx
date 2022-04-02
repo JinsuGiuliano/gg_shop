@@ -23,7 +23,7 @@ export default function Chat({username}) {
         setMessage(newMessage);
         console.log(newMessage)
         addMessage(username, newMessage);
-        if(message == "Hola"){
+        if(message === "Hola"){
              addResponseMessage('Hola');
         }
     };

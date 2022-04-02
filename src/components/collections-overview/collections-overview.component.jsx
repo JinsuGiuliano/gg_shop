@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { useSelector } from 'react-redux';
 import CollectionPreview from '../collection-preview/collection-preview.component';
 import { CollectionsOverviewContainer } from './collections-overview.styles';
@@ -8,7 +8,10 @@ import { selectCollections } from '../../redux/shop/shop.selectors';
 const CollectionsOverview = () => {
   
   const collections = useSelector(selectCollections);
+
+  console.log('cosas locas !')
   return(
+    <Fragment>
           <CollectionsOverviewContainer>
             {
               collections &&
@@ -17,6 +20,7 @@ const CollectionsOverview = () => {
               )
             }
           </CollectionsOverviewContainer>
+    </Fragment>
         )     
           }
 export default CollectionsOverview;
