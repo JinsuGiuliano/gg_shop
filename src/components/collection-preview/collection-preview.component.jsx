@@ -15,7 +15,7 @@ const CollectionPreview = ({ title, items, currentUser }) => {
 //   ))
     return(
       <CollectionPreviewContainer>
-        <TitleContainer to={`shop/${title}`}>{title.toUpperCase()}</TitleContainer>
+        <TitleContainer to={title}>{title.toUpperCase()}</TitleContainer>
         <PreviewContainer>
           {items && 
            

@@ -9,7 +9,6 @@ const CollectionsOverview = () => {
   
   const collections = useSelector(selectCollections);
 
-  console.log('cosas locas !')
   return(
     <Fragment>
           <CollectionsOverviewContainer>

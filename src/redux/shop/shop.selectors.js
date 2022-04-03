@@ -17,8 +17,7 @@ export const selectCollection = collectionUrlParam =>
   createSelector(
     [selectCollections],
     (collections) => {
-      console.log(collections[1][collectionUrlParam] )
-      return (collections ? collections[1][collectionUrlParam] : null)
+      return (collections ? collections.find(e => e.title === collectionUrlParam): null)
     }
   );
 

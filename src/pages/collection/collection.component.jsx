@@ -1,5 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, {Fragment} from 'react';
+import { useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import CollectionItemComponent from '../../components/collection-item/collection-item.component';
 import { selectCollection } from '../../redux/shop/shop.selectors';
@@ -10,25 +12,28 @@ import {
   CollectionItemsContainer
 } from './collection.styles';
 
-const CollectionPage = ({ items, title, currentUser}) => {
-  console.log('items: ', items)
+const CollectionPage = ({currentUser}) => {
+
+  const {category} = useParams();
+  const items = useSelector(selectCollection(category));
+
   return (
+    <Fragment>
     <CollectionPageContainer>
-      <CollectionTitle>{title}</CollectionTitle>
+      <CollectionTitle>{category}</CollectionTitle>
       <CollectionItemsContainer>
         {
-          items.map(item => (
+          items.items.map(item => (
             <CollectionItemComponent key={item.id} item={item} isAdmin={currentUser} />
           ))
         }
       </CollectionItemsContainer>
     </CollectionPageContainer>
+    <Outlet/>
+    </Fragment>
   );
 };
 
 
-const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.match.params.collectionId)(state),
-});
 
-export default connect(mapStateToProps)(CollectionPage);
+export default CollectionPage;
