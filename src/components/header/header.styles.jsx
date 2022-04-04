@@ -8,7 +8,7 @@ export const LogoComponent = styled(Logo)`
     fill: ${({color}) => color };
   }
   &:hover path {
-    fill: ${({hoverColor}) => hoverColor};
+    fill: ${({hovercolor}) => hovercolor};
   }
 `
 

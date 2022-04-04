@@ -35,7 +35,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => {
     />
     <HeaderContainer>
       <LogoContainer to='/' >
-         <LogoComponent  hoverColor='#000000a3' color={`${darkThemeEnabled ? 'white': 'black'}`} /> 
+         <LogoComponent  hovercolor='#000000a3' color={`${darkThemeEnabled ? 'white': 'black'}`} /> 
          <h2 to='/shop'>...find your way!</h2>
       </LogoContainer>
       <OptionsContainer>

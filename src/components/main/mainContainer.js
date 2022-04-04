@@ -13,4 +13,9 @@ export const MainContainer = styled.div`
     color: ${textColor};
   }
 
+  & span {
+    color: ${textColor};
+  }
+
+
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { backgroundColor, textColor } from '../../redux/theme/styles.const';
 export const MenuItemContainer = styled.div`
 	height: ${({ size }) => (size ? '380px' : '240px')};
 	min-width: 30%;
@@ -8,7 +8,7 @@ export const MenuItemContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: 1px solid black;
+	border: 1px solid ${textColor};
 	margin: 0 7.5px 15px;
 	overflow: hidden;
 
@@ -49,8 +49,8 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid ${textColor};
+  background-color: ${backgroundColor};
   opacity: 0.7;
   position: absolute;
 `;
@@ -59,7 +59,7 @@ export const ContentTitle = styled.span`
   font-weight: bold;
   margin-bottom: 6px;
   font-size: 22px;
-  color: #4a4a4a;
+  color: ${textColor};
 `;
 
 export const ContentSubtitle = styled.span`
