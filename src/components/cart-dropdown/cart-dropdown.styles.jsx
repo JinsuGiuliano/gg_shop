@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
+import { backgroundColor, textColor } from '../../redux/theme/styles.const';
 
 export const CartDropdownContainer = styled.div`
   position: absolute;
@@ -8,8 +9,8 @@ export const CartDropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid ${textColor};
+  background-color: ${backgroundColor};
   top: 90px;
   right: 40px;
   z-index: 5;

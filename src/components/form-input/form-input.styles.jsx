@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
-const subColor = 'grey';
-const mainColor = 'black';
+import {backgroundColor, textColor} from '../../redux/theme/styles.const';
+
 
 const shrinkLabelStyles = css`
   top: -14px;
   font-size: 12px;
-  color: ${mainColor};
+  color: ${textColor};
 `;
 
 export const GroupContainer = styled.div`
@@ -19,15 +19,15 @@ export const GroupContainer = styled.div`
 
 export const FormInputContainer = styled.input`
   background: none;
-  background-color: white;
-  color: ${subColor};
+  background-color: ${backgroundColor};
+  color: ${textColor};
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
   width: 100%;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid ${subColor};
+  border-bottom: 1px solid ${textColor};
   margin: 25px 0;
 
   &:focus {
@@ -40,7 +40,7 @@ export const FormInputContainer = styled.input`
 `;
 
 export const FormInputLabel = styled.label`
-  color: ${subColor};
+  color: ${textColor};
   font-size: 16px;
   font-weight: normal;
   position: absolute;

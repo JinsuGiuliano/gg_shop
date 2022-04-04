@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
+import { updateItemStart } from '../../redux/shop/shop.actions';
 import FormInput from '../form-input/form-input.component';
 import { ButtonsBarContainer } from '../sign-in/sign-in.styles';
 import CustomButton from '../custom-button/custom-button.component';
-import { updateItem } from '../../firebase/shop/updateItem';
 import {
   CollectionItemContainer,
   CollectionFooterContainer,
@@ -17,32 +17,34 @@ import {
 
 const CollectionItem = ({ item, addItem, currentUser}) => {
   
-
-  const { name, price, imageUrl, category } = item;
+  const { name, price, imageUrl, category, id } = item;
+  const [prodId, setProdId] = useState(id);
   const [prodName, setProdName] = useState(name);
   const [prodPrice, setProdPrice] = useState(price);
-  const [prodImageUrl, setprodImageUrl] = useState(imageUrl);
+  const [prodImageUrl, setProdImageUrl] = useState(imageUrl);
+  const [prodCategory, setProdCategory] = useState(category);
   const [onEdit, setonEdit] = useState(false);
-
+  const dispatch = useDispatch()
   const handleSubmit = async event => {
     event.preventDefault();
-    updateItem(item,{prodName,prodPrice,prodImageUrl}, category)
+    const itemUpdated = { 
+      id:prodId,
+      name:prodName, 
+      price:prodPrice, 
+      imageUrl:prodImageUrl, 
+      category:prodCategory 
+    }
+    dispatch(updateItemStart(item, itemUpdated))
   };
 
   const handleChange = event => {
     const { value, name } = event.target;
     switch(name){
-      case 'name':
-                  setProdName(value);
-                  break;
-      case 'price':
-                  setProdPrice(value);
-                  break;
-      case 'ImageUrl':
-                  setprodImageUrl(value)
-                  break;
-      default:
-              break;
+      case 'name':setProdName(value);break;
+      case 'price':setProdPrice(value); break;
+      case 'ImageUrl':setProdImageUrl(value); break;
+      case 'category':setProdCategory(value); break;
+      default: break;
     }
      
   };
@@ -65,7 +67,6 @@ const CollectionItem = ({ item, addItem, currentUser}) => {
         </CollectionFooterContainer>
         <AddButton onClick={() => addItem(item)} inverted>
           Add to cart
-          
         </AddButton>
       </CollectionItemContainer>
       ):(
@@ -87,7 +88,22 @@ const CollectionItem = ({ item, addItem, currentUser}) => {
               value={prodPrice}
               required
             />
-          
+            <FormInput
+              name='ImageUrl'
+              type='text'
+              label='Image Url'
+              handleChange={handleChange}
+              value={prodImageUrl}
+              required
+            />
+            <FormInput
+              name='category'
+              type='text'
+              label='Category'
+              handleChange={handleChange}
+              value={prodCategory}
+              required
+            />
             <ButtonsBarContainer>
               <CustomButton type='submit'> Guardar </CustomButton>
             </ButtonsBarContainer>

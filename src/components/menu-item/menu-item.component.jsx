@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import {
   MenuItemContainer,
   BackgroundImageContainer,
@@ -8,10 +8,14 @@ import {
   ContentSubtitle
 } from './menu-item.styles';
 
-const MenuItem = ({ title, imageUrl, size,  linkUrl, history, match }) => (
+const MenuItem = ({ title, imageUrl, size,  linkUrl }) => {
+  const navigate = useNavigate();
+
+  const onNavigateHandler = () => navigate(linkUrl);
+  return(
   <MenuItemContainer
     size={size}
-    onClick={linkUrl}
+    onClick={onNavigateHandler}
   >
     <BackgroundImageContainer
       className='background-image'
@@ -22,6 +26,6 @@ const MenuItem = ({ title, imageUrl, size,  linkUrl, history, match }) => (
       <ContentSubtitle>SHOP NOW</ContentSubtitle>
     </ContentContainer>
   </MenuItemContainer>
-);
+)}
 
 export default MenuItem;
