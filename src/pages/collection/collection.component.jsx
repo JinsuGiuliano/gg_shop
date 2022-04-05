@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-import CollectionItemComponent from '../../components/collection-item/collection-item.component';
+import CollectionItemComponent from '../../components/collection/collection-item/collection-item.component';
 import { selectCollection } from '../../redux/shop/shop.selectors';
 
 import {
