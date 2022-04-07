@@ -1,36 +1,41 @@
 const INITIAL_STATE = {
   sections: [
     {
-      title: 'hats',
-      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+      title: 'Albania',
+      imageUrl: 'assets/images/img-01.jpg',
       id: 1,
-      linkUrl: 'shop/hats'
+      gallery:['assets/images/img-01.jpg','assets/images/img-01.jpg','assets/images/img-01.jpg','assets/images/img-01.jpg'],
+      text: 'shop/hats'
     },
     {
-      title: 'jackets',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+      title: 'Libano',
+      imageUrl: 'assets/images/img-02.jpg',
       id: 2,
-      linkUrl: 'shop/jackets'
+      gallery:['assets/images/img-02.jpg','assets/images/img-02.jpg','assets/images/img-02.jpg','assets/images/img-02.jpg'],
+      text: 'shop/jackets'
     },
     {
-      title: 'sneakers',
-      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+      title: 'Ukraina',
+      imageUrl: 'assets/images/img-03.jpg',
       id: 3,
-      linkUrl: 'shop/sneakers'
+      gallery:['assets/images/img-03.jpg','assets/images/img-03.jpg','assets/images/img-03.jpg','assets/images/img-03.jpg'],
+      text: 'shop/sneakers'
     },
     {
-      title: 'womens',
-      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+      title: 'Congo',
+      imageUrl: 'assets/images/img-04.jpg',
       size: 'large',
       id: 4,
-      linkUrl: 'shop/womens'
+      gallery:['assets/images/img-04.jpg','assets/images/img-04.jpg','assets/images/img-04.jpg','assets/images/img-04.jpg'],
+      text: 'shop/womens'
     },
     {
-      title: 'mens',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+      title: 'Uzbekistan',
+      imageUrl: 'assets/images/img-05.jpg',
       size: 'large',
       id: 5,
-      linkUrl: 'shop/mens'
+      gallery:['assets/images/img-05.jpg','assets/images/img-05.jpg','assets/images/img-05.jpg','assets/images/img-05.jpg'],
+      text: 'shop/mens'
     }
   ]
 };

@@ -11,7 +11,7 @@ import { rootReducer } from './root-reducer';
 const persistConfig = {
   key: 'primary',
   storage,
-  whitelist: ['cart','theme']
+  whitelist: ['cart','theme','wishlist']
 };
 
 const sagaMiddleware = createSagaMiddleware();

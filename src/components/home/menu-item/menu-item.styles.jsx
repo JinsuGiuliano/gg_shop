@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { backgroundColor, textColor } from '../../../redux/theme/styles.const';
+import { ReactComponent as EditIconSVG } from '../../../assets/edit.svg';
+
 export const MenuItemContainer = styled.div`
 	height: ${({ size }) => (size ? '380px' : '240px')};
 	min-width: 30%;
@@ -8,13 +9,12 @@ export const MenuItemContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: 1px solid ${textColor};
 	margin: 0 7.5px 15px;
 	overflow: hidden;
+  filter: grayscale(80%);
 
 	&:hover {
-		cursor: pointer;
-
+    filter: grayscale(50%);
 		& .background-image {
 			transform: scale(1.1);
 			transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
@@ -49,20 +49,31 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${textColor};
-  background-color: ${backgroundColor};
-  opacity: 0.7;
   position: absolute;
 `;
 
 export const ContentTitle = styled.span`
   font-weight: bold;
   margin-bottom: 6px;
-  font-size: 22px;
-  color: ${textColor};
+  font-size: 40px;
+  color: white;
+  text-shadow: 5px 5px 10px #000 ;
+
 `;
 
 export const ContentSubtitle = styled.span`
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 20px;
+  color: white;
+  text-shadow: 5px 5px 10px #000 ;
+`;
+
+export const EditIcon = styled(EditIconSVG)`
+  position: absolute;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  & path {
+      fill: ${({color}) => color };
+    }
 `;

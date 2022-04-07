@@ -3,13 +3,13 @@ import { getFirestore, getDoc, doc, setDoc, collection, addDoc} from "firebase/f
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 const config = {
-      apiKey: "AIzaSyDzLodTUhMfAdq8m6MhgJocUJHXqbi7psE",
-      authDomain: "gg-shop-37f61.firebaseapp.com",
-      projectId: "gg-shop-37f61",
-      storageBucket: "gg-shop-37f61.appspot.com",
-      messagingSenderId: "947706689254",
-      appId: "1:947706689254:web:7fba6ee4e30a2c86cfed27",
-      measurementId: "G-2R6M8S8H3M"
+  apiKey: "AIzaSyD65oVjKam-cixUP_FTUEzz1awY2iuImfk",
+  authDomain: "swn-web.firebaseapp.com",
+  projectId: "swn-web",
+  storageBucket: "swn-web.appspot.com",
+  messagingSenderId: "983286559840",
+  appId: "1:983286559840:web:f506023972752570597f05",
+  measurementId: "G-2X4X8466DX"
   };
 
 const app = initializeApp(config);

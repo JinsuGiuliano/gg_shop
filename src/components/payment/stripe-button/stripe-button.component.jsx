@@ -7,19 +7,17 @@ const StripeCheckoutButton = ({ price }) => {
 
   const onToken = token => {
     console.log(token);
-    alert('Payment Succesful!');
+    alert('Donation Succesful!');
   };
 
   return (
     <StripeCheckout
-      label='Pay Now'
-      name='GG Clothing Ltd.'
-      billingAddress
-      shippingAddress
-      image='https://svgshare.com/i/fwS.svg'
-      description={`Your total is $${price}`}
+      label='DONATE'
+      name='SWN ONG'
+      image='assets/images/logo-swn.png'
+      description={`Your total Donation is $${price}`}
       amount={priceForStripe}
-      panelLabel='Pay Now'
+      panelLabel='DONATE'
       token={onToken}
       stripeKey={publishableKey}
     />
