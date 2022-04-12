@@ -1,37 +1,44 @@
 import React from 'react';
-import { connect,useSelector } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-
+import { useSelector,useDispatch } from 'react-redux';
+/// ACTIONS
 import { toggleCartHidden } from '../../../redux/cart/cart.actions';
+import { toggleWishHidden } from '../../../redux/wishlist/wish.actions'
+/// SELECTORS
 import { selectCartItemsCount } from '../../../redux/cart/cart.selectors';
+import { selectWishItemsCount } from '../../../redux/wishlist/wish.selectors'
 import { selectCurrentTheme } from '../../../redux/theme/theme.selector';
+import { selectCartHidden } from '../../../redux/cart/cart.selectors';
+import { selectWishHidden } from '../../../redux/wishlist/wish.selectors';
 
 import {
   CartContainer,
   ShoppingIcon,
+  WishIcon,
   ItemCountContainer
 } from './cart-icon.styles';
 
-const CartIcon = ({ toggleCartHidden, itemCount }) => {
+const CartIcon = ({cart}) => {
+  const dispatch = useDispatch();
+  const itemCount = useSelector(selectCartItemsCount)
+  const wishItemCount = useSelector(selectWishItemsCount)
   const darkThemeEnabled = useSelector(selectCurrentTheme);
 
   return(
-    <CartContainer onClick={toggleCartHidden}>
-      <ShoppingIcon color={`${darkThemeEnabled ? 'white': 'black'}`} />
-      <ItemCountContainer>{itemCount}</ItemCountContainer>
-    </CartContainer>
+    <div>
+    {
+      cart?
+      <CartContainer onClick={()=>dispatch(toggleCartHidden())}>
+         <ShoppingIcon color={`${darkThemeEnabled ? 'white': 'black'}`} />
+         <ItemCountContainer>{itemCount}</ItemCountContainer>
+      </CartContainer>
+      :
+      <CartContainer onClick={()=>dispatch(toggleWishHidden())}>
+        <WishIcon color={`${darkThemeEnabled ? 'white': 'black'}`} />
+        <ItemCountContainer>{wishItemCount}</ItemCountContainer>
+      </CartContainer>
+    }
+    </div>
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  toggleCartHidden: () => dispatch(toggleCartHidden())
-});
-
-const mapStateToProps = createStructuredSelector({
-  itemCount: selectCartItemsCount
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CartIcon);
+export default CartIcon;

@@ -4,6 +4,7 @@ import {cartReducer} from './cart/cart.reducer';
 import {directoryReducer} from './directory/directory.reducer';
 import {shopReducer} from './shop/shop.reducer';
 import { themeReducer } from './theme/theme.reducer';
+import { wishListReducer } from './wishlist/wish.reducer'
 
 
  export const rootReducer = combineReducers({
@@ -11,5 +12,6 @@ import { themeReducer } from './theme/theme.reducer';
   cart: cartReducer,
   directory: directoryReducer,
   shop: shopReducer,
-  theme: themeReducer
+  theme: themeReducer,
+  wishlist: wishListReducer
 });

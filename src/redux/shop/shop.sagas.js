@@ -15,7 +15,6 @@ import {firestore} from '../../firebase/firebase.utils'
 
 export function* updateItemAsync({payload: {item, itemUpdated}}) {
   try {
-    console.log('updateItemAsync: ', item)
       const itemsRef = doc(firestore, `categories`, item.category, 'items', item.id);
       yield updateDoc(itemsRef,itemUpdated);
       yield put(updateItemSuccess(itemUpdated))

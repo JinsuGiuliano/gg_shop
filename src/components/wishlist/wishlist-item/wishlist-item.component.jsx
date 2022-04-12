@@ -1,19 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItem } from '../../../redux/cart/cart.actions';
+import { removeItem } from '../../../redux/wishlist/wish.actions';
 import { selectCurrentTheme } from '../../../redux/theme/theme.selector';
 import {
   CartItemContainer,
   ItemDetailsContainer,
   CartItemImage,
   RemoveItemButton
-} from './cart-item.styles';
+} from '../../cart/cart-item/cart-item.styles';
 
-const CartItem = ({ item }) => {
+const WishItem = ({ item }) => {
   const dispatch = useDispatch();
   const darkThemeEnabled = useSelector(selectCurrentTheme);
-  
   const { imageUrl, price, name, quantity } = item;
+
   return(
   <CartItemContainer>
     <CartItemImage src={imageUrl} alt='item' />
@@ -27,4 +27,4 @@ const CartItem = ({ item }) => {
   </CartItemContainer>
 );}
 
-export default CartItem;
+export default WishItem;

@@ -11,15 +11,15 @@ import {
 const ProfilePhoto = ({ }) => {
 
   const navigate = useNavigate();
-  const onNavigateHandler = () => navigate(linkUrl);
+  const onNavigateHandler = () => navigate();
 
   return(
   <MenuItemContainer
-    size={200}
+    size={150}
   >
     <BackgroundImageContainer
       className='background-image'
-      imageUrl='../../assets/userRandom.svg'
+      imageUrl='https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png'
     />
     <ContentContainer className='content'>
       <ContentTitle>UserName</ContentTitle>

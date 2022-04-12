@@ -33,7 +33,4 @@ const CollectionPage = ({currentUser}) => {
     </Fragment>
   );
 };
-
-
-
 export default CollectionPage;

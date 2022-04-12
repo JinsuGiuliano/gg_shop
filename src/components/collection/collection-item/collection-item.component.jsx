@@ -1,21 +1,28 @@
 import React,{useState} from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addItemToWishList} from '../../../redux/wishlist/wish.actions';
 import { addItem } from '../../../redux/cart/cart.actions';
 import { updateItemStart } from '../../../redux/shop/shop.actions';
 import FormInput from '../../utils/form-input/form-input.component';
 import { ButtonsBarContainer } from '../../signInUp/sign-in/sign-in.styles';
 import CustomButton from '../../utils/custom-button/custom-button.component';
+import { selectCurrentTheme } from '../../../redux/theme/theme.selector';
+
 import {
   CollectionItemContainer,
   CollectionFooterContainer,
-  AddButton,
   BackgroundImage,
   NameContainer,
   PriceContainer,
-  EditIcon
+  ButtonsContainer,
+  AddCartIcon,
+  WishIcon,
+  EditIcon,
+  ShareIcon
 } from './collection-styles.styles';
 
-const CollectionItem = ({ item, addItem, currentUser}) => {
+const CollectionItem = ({ item, currentUser}) => {
   
   const { name, price, imageUrl, category, id } = item;
   const [prodId, setProdId] = useState(id);
@@ -24,7 +31,10 @@ const CollectionItem = ({ item, addItem, currentUser}) => {
   const [prodImageUrl, setProdImageUrl] = useState(imageUrl);
   const [prodCategory, setProdCategory] = useState(category);
   const [onEdit, setonEdit] = useState(false);
+
   const dispatch = useDispatch()
+  const darkThemeEnabled = useSelector(selectCurrentTheme);
+
   const handleSubmit = async event => {
     event.preventDefault();
     const itemUpdated = { 
@@ -46,13 +56,14 @@ const CollectionItem = ({ item, addItem, currentUser}) => {
       case 'category':setProdCategory(value); break;
       default: break;
     }
-     
+  
   };
+
   return (
     <div>
     {
       currentUser?
-          <EditIcon onClick={() => setonEdit(!onEdit)} />
+          <EditIcon onClick={() => setonEdit(!onEdit)} hovercolor='#5b5b5b' color={`${darkThemeEnabled ? 'white': 'black'}`}/>
     :
           null
     }
@@ -65,9 +76,20 @@ const CollectionItem = ({ item, addItem, currentUser}) => {
           <NameContainer>{name}</NameContainer>
           <PriceContainer>{price}</PriceContainer>
         </CollectionFooterContainer>
-        <AddButton onClick={() => addItem(item)} inverted>
-          Add to cart
-        </AddButton>
+        <ButtonsContainer>
+          <AddCartIcon 
+          onClick={() => 
+           dispatch(addItem(item))
+          //  console.log('Cart Icon')
+          }/>
+          <WishIcon 
+          onClick={() => 
+            dispatch(addItemToWishList(item))
+             //console.log('Wish Icon')
+          }/>
+          <ShareIcon />
+        </ButtonsContainer>
+      
       </CollectionItemContainer>
       ):(
           <form onSubmit={handleSubmit} >
@@ -114,11 +136,6 @@ const CollectionItem = ({ item, addItem, currentUser}) => {
     </div>
   );
 };
-const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
-});
 
-export default connect(
-  null,
-  mapDispatchToProps
-  )(CollectionItem);
+
+export default CollectionItem;

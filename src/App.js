@@ -10,7 +10,7 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/menu/header.component';
 import { checkUserSession } from './redux/user/user.actions';
 import { MainContainer } from './components/main/mainContainer';
-
+import Profile from './pages/profile/profile.component';
 // import { addCollectionAndDocuments } from './firebase/firebase.utils';
 // import SHOP_DATA from './redux/shop/shop.data';
 const App = () => {
@@ -27,6 +27,7 @@ const App = () => {
             <Route path='shop/*' element={<ShopPage />} />
             <Route path='signin' element={<SignInAndSignUpPage />} />
             <Route path='checkout' element={<CheckoutPage />} />
+            <Route path='profile' element={<Profile />} />
           </Route>
         </Routes>
       </MainContainer>

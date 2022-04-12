@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { backgroundColor, textColor } from '../../../redux/theme/styles.const';
+import { backgroundColor, textColor } from '../../redux/theme/styles.const';
 
 export const MenuItemContainer = styled.div`
 	height: ${({ size }) => (size ? '380px' : '240px')};

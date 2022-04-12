@@ -1,6 +1,14 @@
 import styled from 'styled-components';
-import CustomButton from '../../utils/custom-button/custom-button.component';
+//import CustomButton from '../../utils/custom-button/custom-button.component';
 import { ReactComponent as EditIconSVG } from '../../../assets/edit.svg';
+import {ReactComponent as HeartIconSVG} from '../../../assets/heart.svg'
+import {ReactComponent as AddCartIconSVG} from '../../../assets/shopping-bag.svg'
+import {ReactComponent as ShareIconSVG} from '../../../assets/share.svg'
+
+import { backgroundColor, textColor } from '../../../redux/theme/styles.const';
+
+
+
 
 export const CollectionItemContainer = styled.div`
   width: 22vw;
@@ -15,20 +23,13 @@ export const CollectionItemContainer = styled.div`
       opacity: 0.8;
     }
 
-    button {
+    div {
       opacity: 0.85;
       display: flex;
     }
   }
 `;
 
-export const AddButton = styled(CustomButton)`
-  width: 80%;
-  opacity: 0.7;
-  position: absolute;
-  top: 255px;
-  display: none;
-`;
 
 export const BackgroundImage = styled.div`
   width: 100%;
@@ -57,6 +58,47 @@ export const PriceContainer = styled.span`
   text-align: right;
 `;
 
+
+export const AddCartIcon = styled(AddCartIconSVG)`
+  height:40px;
+  width:40px;
+  display: flex;
+  cursor: pointer;
+  fill: #fff;
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));  
+  
+`
+
+export const ShareIcon = styled(ShareIconSVG)`  
+  width:40px;  
+  height:40px;
+  display: flex;
+  cursor: pointer;
+  fill: #fff;
+  filter: drop-shadow(10px 10px 10px rgb(0 0 0 / 0.4));  
+`
+
+export const WishIcon = styled(HeartIconSVG)`
+  height:40px;
+  width:40px;
+  cursor: pointer;
+  display: flex;
+  fill: #fff;
+  filter: drop-shadow(10px 10px 10px rgb(0 0 0 / 0.4));  
+`
+
+export const ButtonsContainer = styled.div`
+    width: 100%;
+    height: auto;
+    padding: 5px 25px 5px 25px;
+    display: none;
+    justify-content: space-around;
+    top: 75%;
+    position:absolute;
+    border: none;
+`;
+
+
 export const NameInputContainer = styled.input`
   width: 90%;
   margin-bottom: 15px;
@@ -70,9 +112,13 @@ export const PriceInputContainer = styled.input`
 export const EditIcon = styled(EditIconSVG)`
   width: 24px;
   height: 24px;
-
   &:hover {
       opacity: 0.8;
     }
-
+  & path {
+      fill: ${({color}) => color };
+    }
+  &:hover path {
+      fill: ${({hovercolor}) => hovercolor};
+    }
 `;

@@ -2,16 +2,10 @@ body {
   margin:0px !important;
 }
 
-/* a {
-  text-decoration: none;
-  color: black;
-} */
-
 * {
   box-sizing: border-box;
 }
- */
-
+ 
 
 /* Corrections for Chat Widget */
 .quick-button{border:2px solid #030303 !important;}
