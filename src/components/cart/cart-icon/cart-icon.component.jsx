@@ -27,12 +27,12 @@ const CartIcon = ({cart}) => {
     <div>
     {
       cart?
-      <CartContainer onClick={()=>dispatch(toggleCartHidden())}>
+      <CartContainer onClick={()=>dispatch(toggleCartHidden())} cart={true}>
          <ShoppingIcon color={`${darkThemeEnabled ? 'white': 'black'}`} />
          <ItemCountContainer>{itemCount}</ItemCountContainer>
       </CartContainer>
       :
-      <CartContainer onClick={()=>dispatch(toggleWishHidden())}>
+      <CartContainer onClick={()=>dispatch(toggleWishHidden())} cart={false}>
         <WishIcon color={`${darkThemeEnabled ? 'white': 'black'}`} />
         <ItemCountContainer>{wishItemCount}</ItemCountContainer>
       </CartContainer>

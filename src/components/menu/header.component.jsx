@@ -42,7 +42,6 @@ const Header = () => {
     <HeaderContainer>
       <LogoContainer to='/' >
          <LogoComponent  hovercolor='#000000a3' color={`${darkThemeEnabled ? 'white': 'black'}`} /> 
-         <h2 to='/shop'>...find your way!</h2>
       </LogoContainer>
       <OptionsContainer>
       

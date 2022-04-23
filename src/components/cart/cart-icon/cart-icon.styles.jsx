@@ -12,6 +12,7 @@ export const CartContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
 `;
 
 export const ShoppingIcon = styled(ShoppingIconSVG)`
@@ -45,4 +46,10 @@ export const ThemeIcon = styled(ThemeIconSVG)`
   & path {
     fill: ${({color}) => color };
   }
+
+  @media screen and (max-width: 800px) {
+    position: fixed;
+    margin-left: 20px;
+    margin-bottom:10px;
+   }
 `;
