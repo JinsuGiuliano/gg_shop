@@ -9,7 +9,6 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/menu/header.component';
 import Profile from './pages/profile/profile.component';
-
 import { checkUserSession } from './redux/user/user.actions';
 import { MainContainer } from './components/main/mainContainer';
 
