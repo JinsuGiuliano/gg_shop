@@ -44,7 +44,7 @@ const CollectionItem = ({ item, currentUser}) => {
       imageUrl:prodImageUrl, 
       category:prodCategory 
     }
-    dispatch(updateItemStart(item, itemUpdated))
+    dispatch(updateItemStart(itemUpdated))
   };
 
   const handleChange = event => {
@@ -98,7 +98,7 @@ const CollectionItem = ({ item, currentUser}) => {
               name='name'
               type='text'
               label='name'
-              handleChange={handleChange}
+              onChange={handleChange}
               value={prodName}
               required
             />
@@ -106,7 +106,7 @@ const CollectionItem = ({ item, currentUser}) => {
               name='price'
               type='text'
               label='price'
-              handleChange={handleChange}
+              onChange={handleChange}
               value={prodPrice}
               required
             />
@@ -114,7 +114,7 @@ const CollectionItem = ({ item, currentUser}) => {
               name='ImageUrl'
               type='text'
               label='Image Url'
-              handleChange={handleChange}
+              onChange={handleChange}
               value={prodImageUrl}
               required
             />
@@ -122,7 +122,7 @@ const CollectionItem = ({ item, currentUser}) => {
               name='category'
               type='text'
               label='Category'
-              handleChange={handleChange}
+              onChange={handleChange}
               value={prodCategory}
               required
             />

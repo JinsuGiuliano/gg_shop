@@ -1,7 +1,7 @@
 import { all, call, takeLatest, put } from 'redux-saga/effects';
 import { getDoc, doc, updateDoc } from 'firebase/firestore';
-import UserActionTypes from '../user/user.types';
-import WishActionTypes from './wish.types';
+import { USER_ACTION_TYPE } from '../user/user.types';
+import { WISH_ACTION_TYPES } from './wish.types';
 import { firestore } from '../../firebase/firebase.utils';
 import { 
   clearWish,
@@ -30,11 +30,11 @@ export function* clearWishOnSignOut() {
 }
 
 export function* onSignOutSuccess() {
-  yield takeLatest(UserActionTypes.SIGN_OUT_SUCCESS, clearWishOnSignOut);
+  yield takeLatest(USER_ACTION_TYPE.SIGN_OUT_SUCCESS, clearWishOnSignOut);
 }
 
 export function* onSaveWishlist(){
-  yield takeLatest(WishActionTypes.SAVE_WISH_LIST_START, saveWishlistForUser)
+  yield takeLatest(WISH_ACTION_TYPES.SAVE_WISH_LIST_START, saveWishlistForUser)
 }
 
 export function* wishSagas() {

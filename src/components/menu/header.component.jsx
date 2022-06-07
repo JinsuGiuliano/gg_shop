@@ -4,7 +4,7 @@ import { createStructuredSelector } from 'reselect';
 import { Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
 /// COMPONENTS
-import Chat from '../utils/chat/chat.component';
+// import Chat from '../utils/chat/chat.component';
 import CartIcon from '../cart/cart-icon/cart-icon.component';
 import CartDropdown from '../cart/cart-dropdown/cart-dropdown.component';
 import WhishListDropdown from '../wishlist/wishlist-dropdown/wishlist-dropdown.component';
@@ -32,13 +32,13 @@ const Header = () => {
   const currentUser = useSelector(selectCurrentUser);
   const hiddenCart = useSelector(selectCartHidden);
   const hiddenWishlist = useSelector(selectWishHidden)
-
+//   <Chat
+//   username={currentUser}
+// />
 
   return(
   <Fragment>
-    <Chat
-      username={currentUser}
-    />
+ 
     <HeaderContainer>
       <LogoContainer to='/' >
          <LogoComponent  hovercolor='#000000a3' color={`${darkThemeEnabled ? 'white': 'black'}`} /> 
