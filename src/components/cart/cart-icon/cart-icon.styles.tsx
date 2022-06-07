@@ -4,7 +4,11 @@ import { ReactComponent as ShoppingIconSVG } from '../../../assets/shopping-bag.
 import { ReactComponent as WishIconSVG } from '../../../assets/heart.svg';
 import { ReactComponent as ThemeIconSVG  } from '../../../assets/moonSun.svg';
 
-export const CartContainer = styled.div`
+type CartContainerType = {
+  cart?: boolean
+}
+
+export const CartContainer = styled.div<CartContainerType>`
   width: 45px;
   height: 45px;
   position: relative;

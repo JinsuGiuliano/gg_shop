@@ -1,12 +1,12 @@
 import { WISH_ACTION_TYPES } from './wish.types';
 import { Action, ActionWithPayload, createAction, withMatcher } from '../../utils/reducers/reducers.utils';
-import { Category } from '../shop/shop.types';
+import { Category, CategoryItem } from '../shop/shop.types';
 import { WishlistItem } from './wish.types';
 import { User } from '../user/user.types';
 
 
 export type ToggleWishHidden = Action<WISH_ACTION_TYPES.TOGGLE_WISH_LIST_HIDDEN>;
-export type AddItemToWishList = ActionWithPayload<WISH_ACTION_TYPES.ADD_ITEM_WISH, WishlistItem>;
+export type AddItemToWishList = ActionWithPayload<WISH_ACTION_TYPES.ADD_ITEM_WISH, CategoryItem>;
 export type RemoveItem = ActionWithPayload<WISH_ACTION_TYPES.REMOVE_ITEM_WISH, WishlistItem>
 export type ClearItemFromWish = ActionWithPayload<WISH_ACTION_TYPES.CLEAR_ITEM_FROM_WISH_LIST, WishlistItem>;
 export type  ClearWish = Action<WISH_ACTION_TYPES.CLEAR_WISH_LIST>;
@@ -24,7 +24,7 @@ createAction(
   ));
 
 export const addItemToWishList = withMatcher(
-  (item: WishlistItem): AddItemToWishList => 
+  (item: CategoryItem): AddItemToWishList => 
   createAction(
     WISH_ACTION_TYPES.ADD_ITEM_WISH,
     item
@@ -53,7 +53,7 @@ export const clearWish = withMatcher(
 
 export type ListAndUser =  {
   wishlist: WishlistItem[];
-  user: User;
+  user: User | null;
 }
 export const saveWishlistForUserStart = withMatcher((wishlist:WishlistItem[],user: User ) => 
   createAction(

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { backgroundColor, textColor } from '../../redux/theme/styles.const';
-
-export const MenuItemContainer = styled.div`
+type MenuItemContainerType = {
+  size?: number;
+}
+export const MenuItemContainer = styled.div<MenuItemContainerType>`
 	height: ${({ size }) => (size ? '380px' : '240px')};
 	min-width: 30%;
 	overflow: hidden;
@@ -34,8 +36,10 @@ export const MenuItemContainer = styled.div`
     margin-left: 7.5px;
   }
 `;
-
-export const BackgroundImageContainer = styled.div`
+type BackgroundImageType = {
+  imageUrl: string;
+}
+export const BackgroundImageContainer = styled.div<BackgroundImageType>`
   width: 100%;
   height: 100%;
   background-size: cover;

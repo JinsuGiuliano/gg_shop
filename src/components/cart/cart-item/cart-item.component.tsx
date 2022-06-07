@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../../../redux/cart/cart.actions';
+import { CartItem as CartItemType } from '../../../redux/cart/cart.types';
 import { selectCurrentTheme } from '../../../redux/theme/theme.selector';
 import {
   CartItemContainer,
@@ -9,7 +10,11 @@ import {
   RemoveItemButton
 } from './cart-item.styles';
 
-const CartItem = ({ item }) => {
+type CartItemComponentType = {
+  item: CartItemType
+}
+
+const CartItem: FC<CartItemComponentType> = ({ item }) => {
   const dispatch = useDispatch();
   const darkThemeEnabled = useSelector(selectCurrentTheme);
   

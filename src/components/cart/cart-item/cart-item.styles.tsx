@@ -23,8 +23,8 @@ export const ItemDetailsContainer = styled.div`
 export const RemoveItemButton = styled(DeleteIcon)`
   height:20px;
   width:20px;
-  display: flex:
-  color: 
+  display: flex;
+  color: transparent;
   cursor: pointer;
   path {
     fill: ${({color}) => color }; 

@@ -2,7 +2,7 @@ import React ,{useEffect}from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchCollectionsStart } from '../../redux/shop/shop.actions';
-import CollectionsOverviewContainer from '../../components/collection/collections-overview/collections-overview.container';
+import CollectionsOverview from '../../components/collection/collections-overview/collections-overview.component';
 import CollectionPageContainer from '../collection/collection.container';
 import ErrorBoundary from '../../ErrorBoundary'
 const ShopPage = () => {
@@ -16,7 +16,7 @@ const ShopPage = () => {
   return (
     <ErrorBoundary>
       <Routes>
-        <Route index element={<CollectionsOverviewContainer />} />
+        <Route index element={<CollectionsOverview />} />
         <Route path=':category' element={<CollectionPageContainer />} />
       </Routes>
       </ErrorBoundary>

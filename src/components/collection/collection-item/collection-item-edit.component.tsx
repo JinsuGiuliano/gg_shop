@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, FormEvent, ChangeEvent, FC} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addItemToWishList} from '../../../redux/wishlist/wish.actions';
@@ -21,8 +21,16 @@ import {
   EditIcon,
   ShareIcon
 } from './collection-styles.styles';
+import { User } from '../../../redux/user/user.types';
+import { CategoryItem } from '../../../redux/shop/shop.types';
+import { selectCurrentUser } from '../../../redux/user/user.selectors';
 
-const CollectionItem = ({ item, currentUser}) => {
+
+type CollectionItemEditType = {
+    item:CategoryItem;
+}
+
+const CollectionItemEdit: FC<CollectionItemEditType> = ({ item}) => {
   
   const { name, price, imageUrl, category, id } = item;
   const [prodId, setProdId] = useState(id);
@@ -34,8 +42,9 @@ const CollectionItem = ({ item, currentUser}) => {
 
   const dispatch = useDispatch()
   const darkThemeEnabled = useSelector(selectCurrentTheme);
+  const currentUser = useSelector(selectCurrentUser) 
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const itemUpdated = { 
       id:prodId,
@@ -47,11 +56,11 @@ const CollectionItem = ({ item, currentUser}) => {
     dispatch(updateItemStart(itemUpdated))
   };
 
-  const handleChange = event => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
     switch(name){
       case 'name':setProdName(value);break;
-      case 'price':setProdPrice(value); break;
+      case 'price':setProdPrice(parseInt(value)); break;
       case 'ImageUrl':setProdImageUrl(value); break;
       case 'category':setProdCategory(value); break;
       default: break;
@@ -60,38 +69,6 @@ const CollectionItem = ({ item, currentUser}) => {
   };
 
   return (
-    <div>
-    {
-      currentUser?
-          <EditIcon onClick={() => setonEdit(!onEdit)} hovercolor='#5b5b5b' color={`${darkThemeEnabled ? 'white': 'black'}`}/>
-    :
-          null
-    }
-    {
-      !onEdit?
-      (
-        <CollectionItemContainer>
-        <BackgroundImage className='image' imageUrl={imageUrl} />
-        <CollectionFooterContainer>
-          <NameContainer>{name}</NameContainer>
-          <PriceContainer>{price}</PriceContainer>
-        </CollectionFooterContainer>
-        <ButtonsContainer>
-          <AddCartIcon 
-          onClick={() => 
-           dispatch(addItem(item))
-          //  console.log('Cart Icon')
-          }/>
-          <WishIcon 
-          onClick={() => 
-            dispatch(addItemToWishList(item))
-             //console.log('Wish Icon')
-          }/>
-          <ShareIcon />
-        </ButtonsContainer>
-      
-      </CollectionItemContainer>
-      ):(
           <form onSubmit={handleSubmit} >
             <img alt="" className='image' src={imageUrl} />
             <FormInput
@@ -130,12 +107,8 @@ const CollectionItem = ({ item, currentUser}) => {
               <CustomButton type='submit'> Guardar </CustomButton>
             </ButtonsBarContainer>
           </form>
-      )
-
-    }
-    </div>
   );
 };
 
 
-export default CollectionItem;
+export default CollectionItemEdit;

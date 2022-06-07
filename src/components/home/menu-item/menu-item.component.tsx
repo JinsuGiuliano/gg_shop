@@ -8,7 +8,8 @@ import {
   ContentSubtitle
 } from './menu-item.styles';
 
-const MenuItem = ({ title, imageUrl, size,  linkUrl }) => {
+const MenuItem = ({ ...otherSectionProps }) => {
+  const {title, imageUrl, size,  linkUrl } = otherSectionProps
   const navigate = useNavigate();
 
   const onNavigateHandler = () => navigate(linkUrl);

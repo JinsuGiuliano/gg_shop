@@ -42,8 +42,10 @@ export const CollectionItemContainer = styled.div`
   }
 `;
 
-
-export const BackgroundImage = styled.div`
+type BackgroundImageType = {
+  imageUrl: string;
+}
+export const BackgroundImage = styled.div<BackgroundImageType>`
   width: 100%;
   height: 95%;
   background-size: cover;

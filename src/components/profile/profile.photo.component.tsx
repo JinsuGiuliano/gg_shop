@@ -8,10 +8,10 @@ import {
   ContentSubtitle
 } from './profile.photo.styles';
 
-const ProfilePhoto = ({ }) => {
+const ProfilePhoto = () => {
 
   const navigate = useNavigate();
-  const onNavigateHandler = () => navigate();
+  const onNavigateHandler = () => navigate('/');
 
   return(
   <MenuItemContainer

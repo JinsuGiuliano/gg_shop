@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 /// ACTIONS
 import { toggleCartHidden } from '../../../redux/cart/cart.actions';
@@ -16,8 +16,13 @@ import {
   WishIcon,
   ItemCountContainer
 } from './cart-icon.styles';
+import { CartItem } from '../../../redux/cart/cart.types';
 
-const CartIcon = ({cart}) => {
+type CartType = {
+  cart?: boolean;
+}
+
+const CartIcon: FC<CartType> = ({cart}) => {
   const dispatch = useDispatch();
   const itemCount = useSelector(selectCartItemsCount)
   const wishItemCount = useSelector(selectWishItemsCount)

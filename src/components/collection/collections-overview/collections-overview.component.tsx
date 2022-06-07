@@ -2,11 +2,14 @@ import React, {Fragment} from 'react';
 import { useSelector } from 'react-redux';
 import CollectionPreview from '../collection-preview/collection-preview.component';
 import { CollectionsOverviewContainer } from './collections-overview.styles';
-import { selectCollections } from '../../../redux/shop/shop.selectors';
+import { selectCollections, selectIsCollectionFetching } from '../../../redux/shop/shop.selectors';
+import { selectCurrentUser } from '../../../redux/user/user.selectors';
+import WithSpinner from '../../utils/with-spinner/with-spinner.component';
 // import { createStructuredSelector } from 'reselect';
 
 const CollectionsOverview = () => {
-  
+  const isLoading = useSelector(selectIsCollectionFetching);
+  const currentUser = useSelector(selectCurrentUser);
   const collections = useSelector(selectCollections);
 
   return(
@@ -22,4 +25,4 @@ const CollectionsOverview = () => {
     </Fragment>
         )     
           }
-export default CollectionsOverview;
+export default WithSpinner(CollectionsOverview);

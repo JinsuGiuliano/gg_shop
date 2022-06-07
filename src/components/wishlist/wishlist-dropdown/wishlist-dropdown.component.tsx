@@ -14,7 +14,8 @@ import {
 const WhishListDropdown = () => {
   const dispatch = useDispatch()
   const wishList = useSelector(selectWishItems);
-  const currentUSer = useSelector(selectCurrentUser) 
+  const currentUser = useSelector(selectCurrentUser) 
+
   return(
   <CartDropdownContainer>
     <CartItemsContainer>
@@ -33,9 +34,9 @@ const WhishListDropdown = () => {
     </CartItemsContainer>
       <CartDropdownButton> SHARE IT &#9788;</CartDropdownButton>
       <CartDropdownButton 
-      onClick={ () => dispatch(saveWishlistForUserStart(wishList, currentUSer))}> 
+      onClick={ () => currentUser && dispatch(saveWishlistForUserStart(wishList, currentUser))}> 
       SAVE IT &#9734;
-      </CartDropdownButton>
+      </CartDropdownButton> 
   </CartDropdownContainer>
 );}
 
