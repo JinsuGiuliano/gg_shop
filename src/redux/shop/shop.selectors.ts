@@ -15,7 +15,7 @@ export const selectCollectionsForPreview = createSelector(
     collections ? Object.keys(collections).map((key:string) => collections[Object.keys(collections).indexOf(key)]) : []
 );
 
-export const selectCollection = (collectionUrlParam: string | undefined) =>
+export const selectCollection = (collectionUrlParam: string) =>
   createSelector(
     [selectCollections],
     (collections) => {

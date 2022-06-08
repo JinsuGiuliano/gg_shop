@@ -25,4 +25,4 @@ const CollectionsOverview = () => {
     </Fragment>
         )     
           }
-export default WithSpinner(CollectionsOverview);
+export default CollectionsOverview;

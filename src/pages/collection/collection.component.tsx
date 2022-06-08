@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 
 import CollectionItemComponent from '../../components/collection/collection-item/collection-item.component';
 import { selectCollection } from '../../redux/shop/shop.selectors';
+import { Category } from '../../redux/shop/shop.types';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 import {
   CollectionPageContainer,
@@ -12,10 +14,10 @@ import {
   CollectionItemsContainer
 } from './collection.styles';
 
-const CollectionPage = ({currentUser}) => {
-
+const CollectionPage = () => {
+  const currentUser = useSelector(selectCurrentUser)
   const {category} = useParams();
-  const items = useSelector(selectCollection(category));
+  const items = useSelector(selectCollection(category as string));
 
   return (
     <Fragment>
@@ -23,8 +25,9 @@ const CollectionPage = ({currentUser}) => {
       <CollectionTitle>{category}</CollectionTitle>
       <CollectionItemsContainer>
         {
+          items &&
           items.items.map(item => (
-            <CollectionItemComponent key={item.id} item={item} isAdmin={currentUser} />
+            <CollectionItemComponent key={item.id} item={item} />
           ))
         }
       </CollectionItemsContainer>

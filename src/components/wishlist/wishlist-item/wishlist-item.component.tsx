@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../../../redux/wishlist/wish.actions';
 import { selectCurrentTheme } from '../../../redux/theme/theme.selector';
@@ -8,8 +8,12 @@ import {
   CartItemImage,
   RemoveItemButton
 } from '../../cart/cart-item/cart-item.styles';
+import { WishlistItem } from '../../../redux/wishlist/wish.types';
 
-const WishItem = ({ item }) => {
+type WishItemCompType = {
+  item: WishlistItem
+}
+const WishItem: FC<WishItemCompType> = ({ item }) => {
   const dispatch = useDispatch();
   const darkThemeEnabled = useSelector(selectCurrentTheme);
   const { imageUrl, price, name, quantity } = item;
