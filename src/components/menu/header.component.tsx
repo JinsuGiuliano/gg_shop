@@ -19,7 +19,7 @@ import { signOutStart } from '../../redux/user/user.actions';
 
 import {
   HeaderContainer,
-  LogoContainer,
+  MenuLogoComponent,
   OptionsContainer,
   OptionLink,
   LogoComponent
@@ -39,12 +39,10 @@ const Header = () => {
   return(
   <Fragment>
  
-    <HeaderContainer>
-      <LogoContainer to='/' >
-         <LogoComponent  hovercolor='#000000a3' color={`${darkThemeEnabled ? 'white': 'black'}`} /> 
-      </LogoContainer>
-      <OptionsContainer>
-      
+      <HeaderContainer>
+        <MenuLogoComponent  hovercolor='#000000a3' color={`${darkThemeEnabled ? 'white': 'black'}`}/>
+        <OptionsContainer>
+        <LogoComponent  hovercolor='#000000a3' color={`${darkThemeEnabled ? 'white': 'black'}`} /> 
         <OptionLink to='/shop'>SHOP</OptionLink>
         <OptionLink to='/shop'>CONTACT</OptionLink>
         {currentUser ? (
