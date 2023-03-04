@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import { backgroundColor, textColor } from '../../redux/theme/styles.const';
 
 export const MainContainer = styled.div`
+  width:100%;
+  height:100%;
   font-family: 'Open Sans Condensed';
-  padding: 0px 40px;
+  padding: 0px 5px;
   background-color: ${backgroundColor};
   color: ${textColor};
   margin: 0px !important;
-
   & a {
     text-decoration: none;
     color: ${textColor};
@@ -16,6 +17,4 @@ export const MainContainer = styled.div`
   & span {
     color: ${textColor};
   }
-
-
 `;

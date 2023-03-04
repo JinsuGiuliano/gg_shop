@@ -1,7 +1,8 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
+        height:100%;
         margin:0px !important;
         @media screen and (max-width:800px){
             left-padding:10px;
@@ -18,4 +19,4 @@ export const GlobalStyle = createGlobalStyle`
   }
   .rcw-launcher{background-color:#000 !important;}
   
-`
+`;

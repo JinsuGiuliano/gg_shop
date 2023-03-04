@@ -16,7 +16,6 @@ import {
   WishIcon,
   ItemCountContainer
 } from './cart-icon.styles';
-import { CartItem } from '../../../redux/cart/cart.types';
 
 type CartType = {
   cart?: boolean;
@@ -34,12 +33,12 @@ const CartIcon: FC<CartType> = ({cart}) => {
       cart?
       <CartContainer onClick={()=>dispatch(toggleCartHidden())} cart={true}>
          <ShoppingIcon color={`${darkThemeEnabled ? 'white': 'black'}`} />
-         <ItemCountContainer>{itemCount}</ItemCountContainer>
+         <ItemCountContainer>{itemCount == 0? "" : itemCount}</ItemCountContainer>
       </CartContainer>
       :
       <CartContainer onClick={()=>dispatch(toggleWishHidden())} cart={false}>
         <WishIcon color={`${darkThemeEnabled ? 'white': 'black'}`} />
-        <ItemCountContainer>{wishItemCount}</ItemCountContainer>
+        <ItemCountContainer>{wishItemCount== 0? "" : wishItemCount }</ItemCountContainer>
       </CartContainer>
     }
     </div>

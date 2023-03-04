@@ -5,12 +5,11 @@ import Directory from '../../components/home/directory/directory.component';
 import { HomePageContainer } from './homepage.styles';
 
 const HomePage = () => {
-  console.log('HomePage Loaded...')
   return(
-  <HomePageContainer>
-    <Directory />
-    <Outlet/>
-  </HomePageContainer>
-)}
+    <HomePageContainer>
+      <Directory />
+      <Outlet/>
+    </HomePageContainer>
+  )}
 
 export default HomePage;

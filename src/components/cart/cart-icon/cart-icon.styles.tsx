@@ -16,7 +16,6 @@ export const CartContainer = styled.div<CartContainerType>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
 `;
 
 export const ShoppingIcon = styled(ShoppingIconSVG)`
@@ -45,15 +44,9 @@ export const ItemCountContainer = styled.span`
 
 export const ThemeIcon = styled(ThemeIconSVG)`
   width: 24px;
-  height: 24px;
   height: 100%;
   & path {
     fill: ${({color}) => color };
   }
-
-  @media screen and (max-width: 800px) {
-    position: fixed;
-    margin-left: 20px;
-    margin-bottom:10px;
-   }
+  cursor: pointer;
 `;

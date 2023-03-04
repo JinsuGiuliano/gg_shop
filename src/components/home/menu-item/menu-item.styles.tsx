@@ -14,7 +14,14 @@ export const MenuItemContainer = styled.div<MenuItemContainerType>`
 	justify-content: center;
 	border: 1px solid ${textColor};
 	margin: 0 7.5px 15px;
-	overflow: hidden;
+  @media screen and (max-width: 800px) {
+    overflow: ;
+	  flex: 1 1 auto;
+    min-width: 100%;
+    width: 50px;
+    padding: 0;
+  }
+
 
 	&:hover {
 		cursor: pointer;

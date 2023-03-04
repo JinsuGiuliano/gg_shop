@@ -13,36 +13,6 @@ export const LogoComponent = styled(Logo)`
   }
 `
 
-export const MenuLogoComponent = styled(MenuLogo)`
-  height: 50px;
-  & path {
-    fill: ${({color}) => color };
-  }
-  &:hover path {
-    fill: ${({hovercolor}) => hovercolor};
-  }
-  display:none;
-    @media screen and (max-width: 800px) {
-    display: flex;
-  }
-`
-
-
-
-export const HeaderContainer = styled.div`
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 25px;
-  @media screen and (max-width: 800px) {
-    flex:1;
-    flex-direction: row;
-    margin-bottom: 5px;
-    justify-content: flex-start;
-  }
-`;
-
 export const LogoContainer = styled(Link)`
   display: flex;
   justify-content: ;
@@ -64,21 +34,13 @@ export const OptionsContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   position: fixed;
   z-index: 99999;
-  padding: 10px 10px;
   background-color: ${backgroundColor};
-  @media screen and (max-width: 800px) {
-    display: none;
-    width: 100%;
-    flex:1;
-   
-    flex-direction: column;
-  }
 `;
 
 export const OptionLink = styled(Link)`
-  padding: 10px 15px;
+  padding: 5px 5px;
   cursor: pointer;
 `;
