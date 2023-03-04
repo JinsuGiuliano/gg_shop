@@ -26,6 +26,9 @@ export const ShortCutsContainer = styled.div`
 export const WelcomeMessage = styled.div`
     font-size: 22px;
     float:center;
+     @media screen and (max-width: 800px) {
+        font-size: 18px;
+     }
 `
 
 export const SectionSC = styled.div`
