@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { Fragment } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 /// COMPONENTS
 // import Chat from '../utils/chat/chat.component';
 /// SELECTORS
@@ -17,6 +17,8 @@ import {
   LogoComponent
 } from './header.styles';
 import CartMenu from '../cart/cart-menu/cart-menu.component';
+import Shortcuts from './shortcuts/shortcuts.components';
+import { WelcomeMessage } from './shortcuts/shortcuts.styles';
 
 const Header = () => {
 
@@ -24,12 +26,19 @@ const Header = () => {
   const darkThemeEnabled = useSelector(selectCurrentTheme);
   const currentUser = useSelector(selectCurrentUser);
 
- 
+  const location = useLocation();
+    console.log(location)
 
   return(
   <Fragment>
           <OptionsContainer >
-            <OptionLink to='/'> <LogoComponent  hovercolor='#000000a3' color={`${darkThemeEnabled ? 'white': 'black'}`} /> </OptionLink>
+        <OptionLink to='/'> <LogoComponent hovercolor='#000000a3' color={`${darkThemeEnabled ? 'white' : 'black'}`} /> </OptionLink>
+        {
+          location.pathname == "/" ?
+          <WelcomeMessage>WELCOME TO OUR SHOP</WelcomeMessage>
+            :
+            <Shortcuts />
+        }
 			      <CartMenu/>
         </OptionsContainer>
     <Outlet/>
