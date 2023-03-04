@@ -8,6 +8,9 @@ export const MainContainer = styled.div`
   padding: 0px 5px;
   background-color: ${backgroundColor};
   color: ${textColor};
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   margin: 0px !important;
   & a {
     text-decoration: none;

@@ -17,7 +17,7 @@ export const CollectionItemContainer = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
-
+  margin:5px;
   &:hover {
     .image {
       opacity: 0.8;
@@ -30,8 +30,10 @@ export const CollectionItemContainer = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    width: 40vw;
-    &:hover {
+    flex:1;
+    width:100%;
+    margin-bottom:20px;
+     &:hover {
       .image {
         opacity: unset;
       }
@@ -47,7 +49,7 @@ type BackgroundImageType = {
 }
 export const BackgroundImage = styled.div<BackgroundImageType>`
   width: 100%;
-  height: 95%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
@@ -55,20 +57,19 @@ export const BackgroundImage = styled.div<BackgroundImageType>`
 `;
 
 export const CollectionFooterContainer = styled.div`
-  width: 100%;
+  width: 90%;
   height: 5%;
   display: flex;
+  padding: 0px 20px 0px 20px !important;
   justify-content: space-between;
   font-size: 18px;
 `;
 
 export const NameContainer = styled.span`
-  width: 90%;
   margin-bottom: 15px;
 `;
 
 export const PriceContainer = styled.span`
-  width: 10%;
   text-align: right;
 `;
 

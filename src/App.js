@@ -28,7 +28,7 @@ const App = () => {
 		<MainContainer>
 			<GlobalStyle />
 			<Header />
-			<div style={{ paddingTop: "80px" }}>
+			<div style={{ paddingTop: "80px", width: "100%", height: "100%" }}>
 				<Routes>
 					<Route index element={<HomePage />} />
 					<Route path="shop/*" element={<ShopPage />} />

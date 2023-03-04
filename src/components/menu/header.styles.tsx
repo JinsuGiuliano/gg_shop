@@ -38,6 +38,11 @@ export const OptionsContainer = styled.div`
   position: fixed;
   z-index: 99999;
   background-color: ${backgroundColor};
+   @media screen and (max-width: 800px) {
+    width: 90%;
+    padding: 0px;
+    margin:0px;
+  }
 `;
 
 export const OptionLink = styled(Link)`
