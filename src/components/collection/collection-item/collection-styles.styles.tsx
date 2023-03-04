@@ -80,7 +80,7 @@ export const AddCartIcon = styled(AddCartIconSVG)`
   display: flex;
   cursor: pointer;
   fill: #fff;
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));  
+  filter: drop-shadow(4px 4px 1px rgb(0 0 0 / 0.4));  
 
   @media screen and (max-width: 800px) {
     display: block;
@@ -97,7 +97,7 @@ export const ShareIcon = styled(ShareIconSVG)`
   display: flex;
   cursor: pointer;
   fill: #fff;
-  filter: drop-shadow(10px 10px 10px rgb(0 0 0 / 0.4));  
+  filter: drop-shadow(4px 4px 1px rgb(0 0 0 / 0.4));  
 `
 
 export const WishIcon = styled(HeartIconSVG)`
@@ -106,18 +106,18 @@ export const WishIcon = styled(HeartIconSVG)`
   cursor: pointer;
   display: flex;
   fill: #fff;
-  filter: drop-shadow(10px 10px 10px rgb(0 0 0 / 0.4));  
+  filter: drop-shadow(4px 4px 1px rgb(0 0 0 / 0.4));  
 `
 
 export const ButtonsContainer = styled.div`
     width: 100%;
-    height: auto;
-    padding: 5px 25px 5px 25px;
+    padding: 10px 5px 10px 5px;
     display: none;
-    justify-content: space-around;
-    top: 75%;
+    justify-content: space-evenly;
+    bottom: 20px;
     position:absolute;
     border: none;
+    background-color:#00000022
 `;
 
 

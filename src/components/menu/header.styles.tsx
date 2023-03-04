@@ -39,7 +39,7 @@ export const OptionsContainer = styled.div`
   z-index: 99999;
   background-color: ${backgroundColor};
    @media screen and (max-width: 800px) {
-    width: 90%;
+    width: 100%;
     padding: 0px;
     margin:0px;
   }
