@@ -95,6 +95,7 @@ const CollectionItem: FC<CollectionItemType> = ({ item }) => {
           padding: '0px',
           gap: '1em',
           rewind: true,
+          arrows: false
         }}
         hasTrack={false} aria-label="...">
         <div style={{ position: "relative" }}>
@@ -113,16 +114,6 @@ const CollectionItem: FC<CollectionItemType> = ({ item }) => {
           <div className="splide__arrows" />
         </div>
       </Splide>
-      {/* <section id="image-carousel" className="splide" aria-label="Beautiful Images">
-        <div style={{ position: "relative" }}>
-          <div className="splide__arrows"></div>
-          <div className="splide__track">
-            <ul className="splide__list">
-            
-            </ul>
-          </div>
-        </div>
-      </section> */}
       <CollectionFooterContainer>
         <NameContainer>{name}</NameContainer>
         <ButtonsContainer>

@@ -42,6 +42,10 @@ export const GlobalStyle = createGlobalStyle`
     background:#fff;
     z-index: 1;
 }
+.splide__arrows{
+  position: absolute;
+  bottom:10%;
+}
 
 @media screen and (max-width:800px){
     .splide__arrow svg {
