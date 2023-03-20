@@ -34,8 +34,12 @@ export const GlobalStyle = createGlobalStyle`
 .splide__arrow svg {
     fill: #fff;
     }
+
+.splide__arrow svg:hover {
+    fill: #ad4040;
+    }
 .splide__pagination__page.is-active {
-    background:textColor;
+    background:#fff;
     z-index: 1;
 }
 
