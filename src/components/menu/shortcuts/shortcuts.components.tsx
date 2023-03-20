@@ -6,19 +6,20 @@ import { SectionSCLink, SectionSC, ShortCutsContainer, WelcomeMessage } from './
 
 const Shortcuts = () => {
 
-    const location = useLocation().pathname.split("/")[2];
-    console.log(location)
-  return(
-        <ShortCutsContainer>
-          {
-              sections.map(section =>
-                  <SectionSC style={{borderBottom:location == section.title? "1px solid red": ""}}>
-                      <SectionSCLink to={section.linkUrl}>{section.title}</SectionSCLink>
-                  </SectionSC>
-                )
-          }
-        </ShortCutsContainer>
-);}
+  const location = useLocation().pathname.split("/")[2];
+  console.log(location)
+  return (
+    <ShortCutsContainer>
+      {
+        sections.map((section, key) =>
+          <SectionSC key={key} style={{ borderBottom: location == section.title ? "1px solid red" : "" }}>
+            <SectionSCLink to={section.linkUrl}>{section.title}</SectionSCLink>
+          </SectionSC>
+        )
+      }
+    </ShortCutsContainer>
+  );
+}
 
 
 

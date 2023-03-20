@@ -9,13 +9,13 @@ export enum SHOP_ACTION_TYPES {
 
 export type CategoryItem = {
   id: string;
-  imageUrl: string;
+  imageUrl: string[];
   name: string;
   category: string;
   price: number;
 }
 
-export type  Category = {
+export type Category = {
   title: string;
   imageUrl: string;
   items: CategoryItem[];

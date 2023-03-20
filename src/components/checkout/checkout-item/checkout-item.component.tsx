@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { connect, useDispatch } from 'react-redux';
-
 import {
   clearItemFromCart,
   addItem,
@@ -28,16 +27,16 @@ const CheckoutItem: FC<CheckOutCompType> = ({ cartItem }) => {
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={imageUrl} alt='item' />
+        <img src={imageUrl[0]} alt='item' />
       </ImageContainer>
       <TextContainer>{name}</TextContainer>
       <QuantityContainer>
-        <div onClick={ () => dispatch(removeItem(cartItem)) }>&#10094;</div>
+        <div onClick={() => dispatch(removeItem(cartItem))}>&#10094;</div>
         <span>{quantity}</span>
-        <div onClick={ () => dispatch(addItem(cartItem)) }>&#10095;</div>
+        <div onClick={() => dispatch(addItem(cartItem))}>&#10095;</div>
       </QuantityContainer>
       <TextContainer>{price}</TextContainer>
-      <RemoveButtonContainer onClick={ () => dispatch(clearItemFromCart(cartItem)) }>
+      <RemoveButtonContainer onClick={() => dispatch(clearItemFromCart(cartItem))}>
         &#10005;
       </RemoveButtonContainer>
     </CheckoutItemContainer>

@@ -18,17 +18,18 @@ const WishItem: FC<WishItemCompType> = ({ item }) => {
   const darkThemeEnabled = useSelector(selectCurrentTheme);
   const { imageUrl, price, name, quantity } = item;
 
-  return(
-  <CartItemContainer>
-    <CartItemImage src={imageUrl} alt='item' />
-    <ItemDetailsContainer>
-      <span>{name}</span>
-      <span>
-        {quantity} x ${price}
-      </span>
-    </ItemDetailsContainer>
-    <RemoveItemButton onClick={()=> dispatch(removeItem(item))} color={`${darkThemeEnabled ? 'white': 'black'}`} />
-  </CartItemContainer>
-);}
+  return (
+    <CartItemContainer>
+      <CartItemImage src={imageUrl[0]} alt='item' />
+      <ItemDetailsContainer>
+        <span>{name}</span>
+        <span>
+          {quantity} x ${price}
+        </span>
+      </ItemDetailsContainer>
+      <RemoveItemButton onClick={() => dispatch(removeItem(item))} color={`${darkThemeEnabled ? 'white' : 'black'}`} />
+    </CartItemContainer>
+  );
+}
 
 export default WishItem;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 //import CustomButton from '../../utils/custom-button/custom-button.component';
 import { ReactComponent as EditIconSVG } from '../../../assets/edit.svg';
-import {ReactComponent as HeartIconSVG} from '../../../assets/heart.svg'
-import {ReactComponent as AddCartIconSVG} from '../../../assets/shopping-bag.svg'
-import {ReactComponent as ShareIconSVG} from '../../../assets/share.svg'
+import { ReactComponent as HeartIconSVG } from '../../../assets/heart.svg'
+import { ReactComponent as AddCartIconSVG } from '../../../assets/shopping-bag.svg'
+import { ReactComponent as ShareIconSVG } from '../../../assets/share.svg'
 
 import { backgroundColor, textColor } from '../../../redux/theme/styles.const';
 
@@ -11,7 +11,7 @@ import { backgroundColor, textColor } from '../../../redux/theme/styles.const';
 
 
 export const CollectionItemContainer = styled.div`
-  width: 22vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -72,15 +72,16 @@ export const NameContainer = styled.span`
 export const PriceContainer = styled.span`
   text-align: right;
 `;
+type AddCartIconContainerType = {
+  isoncart: boolean;
+}
 
-
-export const AddCartIcon = styled(AddCartIconSVG)`
-  height:40px;
-  width:40px;
+export const AddCartIcon = styled(AddCartIconSVG) <AddCartIconContainerType>`
+  height:20px;
+  width:20px;
   display: flex;
   cursor: pointer;
-  fill: #fff;
-  filter: drop-shadow(4px 4px 1px rgb(0 0 0 / 0.4));  
+  fill: ${({ isoncart }) => isoncart.toString() ? `#ec8632` : `${textColor}`}; 
 
   @media screen and (max-width: 800px) {
     display: block;
@@ -91,33 +92,35 @@ export const AddCartIcon = styled(AddCartIconSVG)`
   
 `
 
-export const ShareIcon = styled(ShareIconSVG)`  
-  width:40px;  
-  height:40px;
-  display: flex;
+type WishIconContainerType = {
+  issaved: boolean;
+}
+
+export const WishIcon = styled(HeartIconSVG) <WishIconContainerType>`
+  height:20px;
+  width:20px;
   cursor: pointer;
-  fill: #fff;
-  filter: drop-shadow(4px 4px 1px rgb(0 0 0 / 0.4));  
+  display: flex;
+  fill: ${({ issaved }) => issaved.toString() ? `#ec4832` : `${textColor}`}; 
 `
 
-export const WishIcon = styled(HeartIconSVG)`
-  height:40px;
-  width:40px;
-  cursor: pointer;
+export const ShareIcon = styled(ShareIconSVG)`  
+  width:20px;  
+  height:20px;
   display: flex;
-  fill: #fff;
-  filter: drop-shadow(4px 4px 1px rgb(0 0 0 / 0.4));  
+  cursor: pointer;
+   fill: ${textColor};
 `
+
+
 
 export const ButtonsContainer = styled.div`
     width: 100%;
     padding: 10px 5px 10px 5px;
-    display: none;
+    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     bottom: 20px;
-    position:absolute;
-    border: none;
-    background-color:#00000022
 `;
 
 
@@ -138,9 +141,9 @@ export const EditIcon = styled(EditIconSVG)`
       opacity: 0.8;
     }
   & path {
-      fill: ${({color}) => color };
+      fill: ${({ color }) => color};
     }
   &:hover path {
-      fill: ${({hovercolor}) => hovercolor};
+      fill: ${({ hovercolor }) => hovercolor};
     }
 `;
