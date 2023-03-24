@@ -12,6 +12,7 @@ import '@splidejs/react-splide/css/core';
 export const GlobalStyle = createGlobalStyle`
   body {
         height:100%;
+        width:100%;
         margin:0px !important;
         @media screen and (max-width:800px){
             left-padding:10px;

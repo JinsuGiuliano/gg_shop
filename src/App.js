@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import 'react-chat-widget/lib/styles.css';
 
 import HomePage from "./pages/homepage/homepage.component";
@@ -15,6 +15,8 @@ import { MainContainer } from "./components/main/mainContainer";
 
 import { GlobalStyle } from "./globalStyles";
 import CartMenu from "./components/cart/cart-menu/cart-menu.component";
+import { selectItemPreview } from "./redux/shop/shop.selectors";
+import ItemPreview from "./components/collection/Item-preview/item-preview.component";
 
 // import { addCollectionAndDocuments } from './firebase/firebase.utils';
 // import SHOP_DATA from './redux/shop/shop.data';
@@ -24,11 +26,14 @@ const App = () => {
 	useEffect(() => {
 		dispatch(checkUserSession());
 	});
+
+	const itemPrev = useSelector(selectItemPreview)
 	return (
 		<MainContainer>
 			<GlobalStyle />
 			<Header />
 			<div style={{ paddingTop: "80px", width: "80%", height: "100%" }}>
+			{itemPrev?.id && <ItemPreview item={itemPrev} />}
 				<Routes>
 					<Route index element={<HomePage />} />
 					<Route path="shop/*" element={<ShopPage />} />
