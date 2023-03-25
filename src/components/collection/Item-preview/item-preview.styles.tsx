@@ -9,41 +9,45 @@ import { backgroundColor, textColor } from '../../../redux/theme/styles.const';
 import { CategoryItem } from '../../../redux/shop/shop.types';
 
 export const ItemPreviewContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   position: fixed; /* Stay in place */
-  z-index: 9999999; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  z-index: 999; /* Sit on top */
+  /* padding-top: 2%; Location of the box */
   left: 0;
-  top: 0;
+  top: 8%;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+   @media screen and (max-width: 800px) {
+    padding:5px;
+    flex-direction: column;
+    position: absolute;
+  }
 `
 
-export const ItemPreviewContent = styled.div`
+export const ItemPreviewImage = styled.div`
   background-color: #fefefe;
-  margin: auto;
+  /* margin: auto; */
   padding: 20px;
   border: 1px solid #888;
   width: 100%;
-  height: 50%;
+`
+export const ItemPreviewDetails = styled.div`
+  background-color: #fefefe;
+  /* margin: auto; */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
 `
 
 export const CollectionItemContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 350px;
-  align-items: center;
-  position: relative;
-  margin:5px;
-
-
-  @media screen and (max-width: 800px) {
-    flex:1;
-    width:100%;
-    margin-bottom:20px;
+display: flex;
+    width: 100%;
+    align-items: center;
+    margin:5px;
      &:hover {
       .image {
         opacity: unset;
@@ -52,7 +56,6 @@ export const CollectionItemContainer = styled.div`
         opacity: unset;
       }
     }
-  }
 `;
 
 type BackgroundImageType = {

@@ -26,7 +26,6 @@ const ActionComponent: FC<CollectionItemType> = ({ item }) => {
 
     return (
         <CollectionFooterContainer>
-            <NameContainer>{item.name}</NameContainer>
             <ButtonsContainer>
                 <AddCartIcon
                     isoncart={isoncart}
@@ -41,7 +40,6 @@ const ActionComponent: FC<CollectionItemType> = ({ item }) => {
                     } />
                 <ShareIcon />
             </ButtonsContainer>
-            <PriceContainer>{item.price}</PriceContainer>
         </CollectionFooterContainer>
     )
 }

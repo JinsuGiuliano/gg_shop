@@ -26,7 +26,8 @@ import {
   EditIcon,
   ShareIcon,
   ItemPreviewContainer,
-  ItemPreviewContent
+  ItemPreviewImage,
+  ItemPreviewDetails
 } from './item-preview.styles';
 import { selectCurrentUser } from '../../../redux/user/user.selectors';
 import { selectCartItems } from '../../../redux/cart/cart.selectors';
@@ -58,12 +59,11 @@ const ItemPreview: FC<CollectionItemType> = ({ item }) => {
 
   return (
     <ItemPreviewContainer >
-      <ItemPreviewContent>
+      <ItemPreviewImage>
         <div onClick={closePreviewFunc}> X </div>
         <Splide
           options={{
             width: '100%',
-            height: '100%',
             padding: '0px',
             gap: '1em',
             rewind: true,
@@ -77,7 +77,7 @@ const ItemPreview: FC<CollectionItemType> = ({ item }) => {
                 imageUrl.map((e, key) => (
                   <SplideSlide key={key}>
                     <CollectionItemContainer >
-                      <BackgroundImage className='image' imageUrl={e} />
+                      <img src={e} width="400px" />
                     </CollectionItemContainer>
                   </SplideSlide>
                 ))
@@ -86,8 +86,15 @@ const ItemPreview: FC<CollectionItemType> = ({ item }) => {
             <div className="splide__arrows" />
           </div>
         </Splide>
+
+      </ItemPreviewImage>
+      <ItemPreviewDetails>
         <ActionComponent item={item} />
-      </ItemPreviewContent>
+        <h2>{item.name}</h2>{" "}<h2>$ {item.price}</h2>
+        <br /><br />
+        <span style={{ fontSize: '18px' }}>{item.description}</span>
+        <br /><br />
+      </ItemPreviewDetails>
     </ItemPreviewContainer>
   );
 };

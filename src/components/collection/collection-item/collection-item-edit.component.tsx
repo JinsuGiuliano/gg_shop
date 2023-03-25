@@ -13,13 +13,13 @@ type CollectionItemEditType = {
 
 const CollectionItemEdit: FC<CollectionItemEditType> = ({ item }) => {
 
-  const { name, price, imageUrl, category, id } = item;
+  const { name, price, imageUrl, category, id, description } = item;
   const [prodId, setProdId] = useState(id);
   const [prodName, setProdName] = useState(name);
   const [prodPrice, setProdPrice] = useState(price);
   const [prodImageUrl, setProdImageUrl] = useState(imageUrl);
   const [prodCategory, setProdCategory] = useState(category);
-
+  const [prodDescription, setProdDescription] = useState(description);
   const dispatch = useDispatch()
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -29,7 +29,8 @@ const CollectionItemEdit: FC<CollectionItemEditType> = ({ item }) => {
       name: prodName,
       price: prodPrice,
       imageUrl: prodImageUrl,
-      category: prodCategory
+      category: prodCategory,
+      description: prodDescription
     }
     dispatch(updateItemStart(itemUpdated))
   };

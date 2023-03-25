@@ -19,7 +19,7 @@ export const ShortCutsContainer = styled.div`
         flex-wrap: nowrap;
         overflow-x: auto;
         background-color: ${backgroundColor};
-        z-index:99999;
+        z-index:999;
   }
 `
 

@@ -13,7 +13,7 @@ export const CartDropdownContainer = styled.div`
   background-color: ${backgroundColor};
   top: 90px;
   right: 40px;
-  z-index: 99999;
+  z-index: 9999999;
 `;
 
 export const CartDropdownButton = styled(CustomButton)`

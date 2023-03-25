@@ -60,7 +60,6 @@ const CollectionItem: FC<CollectionItemType> = ({ item }) => {
     dispatch(tooglePreview(item))
   }
 
-  console.log('CONSOLE')
   return (
     <MainItemContainer>
       <Splide
