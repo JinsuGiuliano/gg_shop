@@ -27,7 +27,9 @@ import {
   ShareIcon,
   ItemPreviewContainer,
   ItemPreviewImage,
-  ItemPreviewDetails
+  ItemPreviewDetails,
+  CloseTagIcon,
+  CloseContainer
 } from './item-preview.styles';
 import { selectCurrentUser } from '../../../redux/user/user.selectors';
 import { selectCartItems } from '../../../redux/cart/cart.selectors';
@@ -60,7 +62,9 @@ const ItemPreview: FC<CollectionItemType> = ({ item }) => {
   return (
     <ItemPreviewContainer >
       <ItemPreviewImage>
-        <div onClick={closePreviewFunc}> X </div>
+        <CloseContainer>
+          <CloseTagIcon onClick={closePreviewFunc} />
+        </CloseContainer>
         <Splide
           options={{
             width: '100%',
@@ -91,8 +95,11 @@ const ItemPreview: FC<CollectionItemType> = ({ item }) => {
       <ItemPreviewDetails>
         <ActionComponent item={item} />
         <h2>{item.name}</h2>{" "}<h2>$ {item.price}</h2>
-        <br /><br />
-        <span style={{ fontSize: '18px' }}>{item.description}</span>
+        <br />
+        <span style={{
+          fontSize: '18px',
+          overflowY: 'auto'
+        }}>{item.description}</span>
         <br />
       </ItemPreviewDetails>
     </ItemPreviewContainer>

@@ -4,6 +4,7 @@ import { ReactComponent as EditIconSVG } from '../../../assets/edit.svg';
 import { ReactComponent as HeartIconSVG } from '../../../assets/heart.svg'
 import { ReactComponent as AddCartIconSVG } from '../../../assets/shopping-bag.svg'
 import { ReactComponent as ShareIconSVG } from '../../../assets/share.svg'
+import { ReactComponent as CloseIconSVG } from '../../../assets/close.svg'
 
 import { backgroundColor, textColor } from '../../../redux/theme/styles.const';
 import { CategoryItem } from '../../../redux/shop/shop.types';
@@ -23,8 +24,8 @@ export const ItemPreviewContainer = styled.div`
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
    @media screen and (max-width: 800px) {
     left: 0%;
-    top: 12%;
-    padding:5px;
+    top: 10%;
+    padding:0px;
     flex-direction: column;
     width:100%; /* Full width */
     height: 100%; /* Full height */
@@ -32,26 +33,45 @@ export const ItemPreviewContainer = styled.div`
   }
 `
 
+export const CloseContainer = styled.div`
+  position: fixed;
+  top:12%;
+  left:0px;
+  background-color:${backgroundColor};
+  padding:10px;
+  border-radius:0px 10px 10px 0px;
+  z-index:999999;
+  cursor: pointer;
+`
+
+export const CloseTagIcon = styled(CloseIconSVG)`
+  width:20px;
+  height:20px;
+   fill: ${textColor};
+`
+
 export const ItemPreviewImage = styled.div`
-  background-color: #fefefe;
+  background-color: ${backgroundColor};
   /* margin: auto; */
   padding: 20px;
-  border: 1px solid #888;
   width: 400px;
    @media screen and (max-width: 800px) {
-     padding: 0px;
+      position: relative;
+      padding: 0px;
+      margin: 0px;
       width: 100%;
    }
 `
 export const ItemPreviewDetails = styled.div`
-  background-color: #fefefe;
+  background-color: ${backgroundColor};
   /* margin: auto; */
   padding: 20px;
-  border: 1px solid #888;
   width: 400px;
+  color: ${textColor};
      @media screen and (max-width: 800px) {
       padding: 5px;
       width: 100%;
+      height:100%;
    }
 `
 
