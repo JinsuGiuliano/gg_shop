@@ -20,7 +20,6 @@ export const ItemPreviewContainer = styled.div`
   width: 800px; /* Full width */
   height: 100%; /* Full height */
   max-height:700px;
-  align-items: center;
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
