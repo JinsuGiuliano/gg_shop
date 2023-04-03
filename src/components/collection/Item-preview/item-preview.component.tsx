@@ -93,7 +93,7 @@ const ItemPreview: FC<CollectionItemType> = ({ item }) => {
         <h2>{item.name}</h2>{" "}<h2>$ {item.price}</h2>
         <br /><br />
         <span style={{ fontSize: '18px' }}>{item.description}</span>
-        <br /><br />
+        <br />
       </ItemPreviewDetails>
     </ItemPreviewContainer>
   );

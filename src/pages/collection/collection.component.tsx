@@ -23,7 +23,6 @@ const CollectionPage = () => {
   return (
     <div style={{ position: 'relative' }}>
       <CollectionPageContainer>
-        <CollectionTitle>{category}</CollectionTitle>
         <CollectionItemsContainer>
           {
             items &&

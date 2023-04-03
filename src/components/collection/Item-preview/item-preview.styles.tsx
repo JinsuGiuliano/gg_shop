@@ -14,17 +14,21 @@ export const ItemPreviewContainer = styled.div`
   position: fixed; /* Stay in place */
   z-index: 999; /* Sit on top */
   /* padding-top: 2%; Location of the box */
-  left: 0;
-  top: 8%;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  left: 20%;
+  top: 10%;
+  width: 800px; /* Full width */
+  height: 800px; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
    @media screen and (max-width: 800px) {
+    left: 0%;
+    top: 12%;
     padding:5px;
     flex-direction: column;
-    position: absolute;
+    width:100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow:auto;
   }
 `
 
@@ -33,14 +37,22 @@ export const ItemPreviewImage = styled.div`
   /* margin: auto; */
   padding: 20px;
   border: 1px solid #888;
-  width: 100%;
+  width: 400px;
+   @media screen and (max-width: 800px) {
+     padding: 0px;
+      width: 100%;
+   }
 `
 export const ItemPreviewDetails = styled.div`
   background-color: #fefefe;
   /* margin: auto; */
   padding: 20px;
   border: 1px solid #888;
-  width: 100%;
+  width: 400px;
+     @media screen and (max-width: 800px) {
+      padding: 5px;
+      width: 100%;
+   }
 `
 
 export const CollectionItemContainer = styled.div`
