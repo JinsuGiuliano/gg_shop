@@ -61,10 +61,11 @@ const ItemPreview: FC<CollectionItemType> = ({ item }) => {
 
   return (
     <ItemPreviewContainer >
+      <CloseContainer>
+        <CloseTagIcon onClick={closePreviewFunc} />
+      </CloseContainer>
       <ItemPreviewImage>
-        <CloseContainer>
-          <CloseTagIcon onClick={closePreviewFunc} />
-        </CloseContainer>
+
         <Splide
           options={{
             width: '100%',

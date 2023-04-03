@@ -18,10 +18,13 @@ export const ItemPreviewContainer = styled.div`
   left: 20%;
   top: 10%;
   width: 800px; /* Full width */
-  height: 800px; /* Full height */
+  height: 100%; /* Full height */
+  max-height:700px;
+  align-items: center;
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  box-shadow: 0px 10px 13px rgba(0,0,0,0.4); 
    @media screen and (max-width: 800px) {
     left: 0%;
     top: 10%;
@@ -29,19 +32,21 @@ export const ItemPreviewContainer = styled.div`
     flex-direction: column;
     width:100%; /* Full width */
     height: 100%; /* Full height */
-    overflow:auto;
   }
 `
 
 export const CloseContainer = styled.div`
-  position: fixed;
-  top:12%;
-  left:0px;
+  position: absolute;
   background-color:${backgroundColor};
   padding:10px;
-  border-radius:0px 10px 10px 0px;
+  border-radius:0px 5px 5px 0px;
   z-index:999999;
   cursor: pointer;
+  @media screen and (max-width: 800px) {
+    position: fixed;
+    top:12%;
+    left:0px;
+  }
 `
 
 export const CloseTagIcon = styled(CloseIconSVG)`
