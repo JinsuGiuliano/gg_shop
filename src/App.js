@@ -13,7 +13,7 @@ import Profile from "./pages/profile/profile.component";
 import { checkUserSession } from "./redux/user/user.actions";
 import { MainContainer } from "./components/main/mainContainer";
 
-import { GlobalStyle } from "./globalStyles";
+import { GlobalContainer, GlobalStyle } from "./globalStyles";
 import CartMenu from "./components/cart/cart-menu/cart-menu.component";
 import { selectItemPreview } from "./redux/shop/shop.selectors";
 import ItemPreview from "./components/collection/Item-preview/item-preview.component";
@@ -32,7 +32,7 @@ const App = () => {
 		<MainContainer>
 			<GlobalStyle />
 			<Header />
-			<div style={{ paddingTop: "80px", width: "80%", height: "100%" }}>
+			<GlobalContainer>
 			{itemPrev?.id && <ItemPreview item={itemPrev} />}
 				<Routes>
 					<Route index element={<HomePage />} />
@@ -41,7 +41,7 @@ const App = () => {
 					<Route path="checkout" element={<CheckoutPage />} />
 					<Route path="profile" element={<Profile />} />
 				</Routes>
-			</div>
+			</GlobalContainer>
 		</MainContainer>
 	);
 };

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from 'styled-components';
 import { textColor } from "./redux/theme/styles.const";
 // Default theme
 import '@splidejs/react-splide/css';
@@ -9,6 +10,17 @@ import '@splidejs/react-splide/css/sea-green';
 
 // or only core styles
 import '@splidejs/react-splide/css/core';
+
+
+export const GlobalContainer = styled.div`
+ padding-top: 80px; 
+ width: 80%; 
+ height: 100%;
+   @media screen and (max-width:800px){
+           width: 100%;
+        }
+`
+
 export const GlobalStyle = createGlobalStyle`
   body {
         height:100%;
@@ -30,7 +42,9 @@ export const GlobalStyle = createGlobalStyle`
   .rcw-launcher{background-color:#000 !important;}
 
 .splide {
+  width:100% !important;
     padding: 0 !important;
+       margin:0px !important;
 }
 .splide__arrow svg {
     fill: #fff;
